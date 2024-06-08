@@ -1,0 +1,534 @@
+name: new_project
+description: "A new Flutter project."
+# The following line prevents the package from being accidentally published to
+# pub.dev using `flutter pub publish`. This is preferred for private packages.
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+# The following defines the version and build number for your application.
+# A version number is three numbers separated by dots, like 1.2.43
+# followed by an optional build number separated by a +.
+# Both the version and the builder number may be overridden in flutter
+# build by specifying --build-name and --build-number, respectively.
+# In Android, build-name is used as versionName while build-number used as versionCode.
+# Read more about Android versioning at https://developer.android.com/studio/publish/versioning
+# In iOS, build-name is used as CFBundleShortVersionString while build-number is used as CFBundleVersion.
+# Read more about iOS versioning at
+# https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
+# In Windows, build-name is used as the major, minor, and patch parts
+# of the product and file versions while build-number is used as the build suffix.
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.3.0 <4.0.0'
+
+# Dependencies specify other packages that your package needs in order to work.
+# To automatically upgrade your package dependencies to the latest versions
+# consider running `flutter pub upgrade --major-versions`. Alternatively,
+# dependencies can be manually updated by changing the version numbers below to
+# the latest version available on pub.dev. To see which dependencies have newer
+# versions available, run `flutter pub outdated`.
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # The following adds the Cupertino Icons font to your application.
+  # Use with the CupertinoIcons class for iOS style icons.
+  cupertino_icons: ^1.0.6
+  firebase_core: ^2.30.1
+  cloud_firestore: ^4.8.2
+  firebase_auth: ^4.6.3
+  firebase_storage: ^11.2.4
+  fluttertoast: ^8.2.2
+  shared_preferences: ^2.2.3
+  carousel_slider: ^4.2.1
+  smooth_page_indicator: ^1.1.0
+  provider: ^6.1.2
+  riverpod: ^2.5.1
+  url_launcher: ^6.1.5
+  # flutter_pdfview: ^1.0.4
+  syncfusion_flutter_pdfviewer: ^20.3.57  
+
+  
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  # The "flutter_lints" package below contains a set of recommended lints to
+  # encourage good coding practices. The lint set provided by the package is
+  # activated in the `analysis_options.yaml` file located at the root of your
+  # package. See that file for information about deactivating specific lint
+  # rules and activating additional ones.
+  flutter_lints: ^3.0.0
+  
+# For information on the generic Dart part of this file, see the
+# following page: https://dart.dev/tools/pub/pubspec
+
+# The following section is specific to Flutter packages.
+flutter:
+  # The following line ensures that the Material Icons font is
+  # included with your application, so that you can use the icons in
+  # the material Icons class.
+  uses-material-design: true
+
+  # To add assets to your application, add an assets section, like this:
+  assets:
+    - images/cairo.jpg
+    - images/alexandria.jpg
+    - images/Luxur.jpg
+    - images/siwa.jpg
+    - images/hurghada.jpg
+    - images/cina.jpg
+    - images/cairo1.jpg
+    - images/cairo2.jpg
+    - images/cairo3.jpg
+    - images/alex1.jpg
+    - images/alex2.jpg
+    - images/alex3.jpg
+    - images/hurghada1.jpg
+    - images/hurghada2.jpg
+    - images/hurghada3.jpg
+    - images/LuxAndAsw1.jpg
+    - images/LuxAndAsw2.jpg
+    - images/LuxAndAsw3.jpg
+    - images/Sinai1.jpg
+    - images/Sinai2.jpg
+    - images/Sinai3.jpg
+    - images/siwa1.jpg
+    - images/siwa2.jpg
+    - images/siwa3.jpg
+    - images/1.jpg
+    - images/2.jpg
+    - images/3.jpg
+    - images/4.jpg
+    - images/5.jpg
+    - images/6.jpg
+    - images/7.jpg
+    - images/8.jpg
+    - images/ramsesimages/ramses hilton.jpg
+    - images/ramsesimages/rest.jpg
+    - images/ramsesimages/room.jpg
+    - images/ramsesimages/swimming-pool-day.avif
+    - images/tolipimages/tolip.jpg
+    - images/tolipimages/toliprest.jpg
+    - images/tolipimages/toliproom.jpg
+    - images/tolipimages/swimmpool.jpg
+    - images/fairmonthotel/fairmont.jpg
+    - images/fairmonthotel/fairmontroom.jpg
+    - images/fairmonthotel/fairmontrestt.jpg
+    - images/fairmonthotel/fairmontpool.jpg
+    - images/kempinskihotel/kempinski.jpg
+    - images/kempinskihotel/kemppool.jpg
+    - images/kempinskihotel/kemprest.jpg
+    - images/kempinskihotel/kemproom.jpg
+    - images/steighenberghotel/steigenberger.jpg
+    - images/steighenberghotel/steighenloopy.jpg
+    - images/steighenberghotel/steighenroom.jpg
+    - images/steighenberghotel/steinpool.jpg
+    - images/photo_2024-04-18_04-44-40.jpg
+    - images/photo_2024-03-22_00-51-19.jpg
+    - images/photo_2024-03-22_00-51-21.jpg
+    - images/photo_2024-03-22_00-51-22.jpg
+    - images/photo_2024-03-22_00-51-25.jpg
+    - images/photo_2024-03-22_00-51-28.jpg
+    - images/land1.jpg
+    - images/land2.jpg
+    - images/land3.jpg
+    - images/land4.jpg
+    - images/land5.jpg
+    - images/alexhotels/amoun1.jpg
+    - images/alexhotels/amoun2.jpg
+    - images/alexhotels/amoun3.jpg
+    - images/alexhotels/amoun4.jpg
+    - images/alexhotels/green1.jpg
+    - images/alexhotels/green2.jpg
+    - images/alexhotels/green3.jpg
+    - images/alexhotels/green4.jpg
+    - images/alexhotels/hilton1.jpg
+    - images/alexhotels/hilton2.jpg
+    - images/alexhotels/hilton3.jpg
+    - images/alexhotels/hilton4.jpg
+    - images/alexhotels/royal1.jpg
+    - images/alexhotels/royal2.jpg
+    - images/alexhotels/royal3.jpg
+    - images/alexhotels/royal4.jpg
+    - images/alexhotels/sim1.jpg
+    - images/alexhotels/sim2.jpg
+    - images/alexhotels/sim3.jpg
+    - images/alexhotels/sim4.jpg
+    - images/hurghadahotels/hur1.jpg
+    - images/hurghadahotels/hur2.jpg
+    - images/hurghadahotels/hur3.jpg
+    - images/hurghadahotels/hur4.jpg
+    - images/hurghadahotels/gif1.jpg
+    - images/hurghadahotels/gif2.jpg
+    - images/hurghadahotels/gif3.jpg
+    - images/hurghadahotels/gif4.jpg
+    - images/hurghadahotels/pano1.jpg
+    - images/hurghadahotels/pano2.jpg
+    - images/hurghadahotels/pano3.jpg
+    - images/hurghadahotels/pano4.jpg
+    - images/hurghadahotels/rixos1.jpg
+    - images/hurghadahotels/rixos2.jpg
+    - images/hurghadahotels/rixos3.jpg
+    - images/hurghadahotels/rixos4.jpg
+    - images/hurghadahotels/serry1.jpg
+    - images/hurghadahotels/serry2.jpg
+    - images/hurghadahotels/serry3.jpg
+    - images/hurghadahotels/serry4.jpg
+    - images/luxorandaswanhotels/hilt1.jpg
+    - images/luxorandaswanhotels/hilt2.jpg
+    - images/luxorandaswanhotels/hilt3.jpg
+    - images/luxorandaswanhotels/hilt4.jpg
+    - images/luxorandaswanhotels/jewel1.jpg
+    - images/luxorandaswanhotels/jewel2.jpg
+    - images/luxorandaswanhotels/jewel3.jpg
+    - images/luxorandaswanhotels/jewel4.jpg
+    - images/luxorandaswanhotels/menmon1.jpg
+    - images/luxorandaswanhotels/menmon2.jpg
+    - images/luxorandaswanhotels/menmon3.jpg
+    - images/luxorandaswanhotels/menmon4.jpg
+    - images/luxorandaswanhotels/sonesta1.jpg
+    - images/luxorandaswanhotels/sonesta2.jpg
+    - images/luxorandaswanhotels/sonesta3.jpg
+    - images/luxorandaswanhotels/sonesta4.jpg
+    - images/luxorandaswanhotels/stein1.jpg
+    - images/luxorandaswanhotels/stein2.jpg
+    - images/luxorandaswanhotels/stein3.jpg
+    - images/luxorandaswanhotels/stein4.jpg
+    - images/luxorandaswanhotels/moven11.jpg
+    - images/luxorandaswanhotels/moven2.jpg
+    - images/luxorandaswanhotels/moven3.jpg
+    - images/luxorandaswanhotels/moven4.jpg
+    - images/luxorandaswanhotels/ob1.jpg
+    - images/luxorandaswanhotels/ob2.jpg
+    - images/luxorandaswanhotels/ob3.jpg
+    - images/luxorandaswanhotels/ob4.jpg
+    - images/luxorandaswanhotels/sof1.jpg
+    - images/luxorandaswanhotels/sof2.jpg
+    - images/luxorandaswanhotels/sof3.jpg
+    - images/luxorandaswanhotels/sof4.jpg
+    - images/luxorandaswanhotels/ben1.jpg
+    - images/luxorandaswanhotels/ben2.jpg
+    - images/luxorandaswanhotels/ben3.jpg
+    - images/luxorandaswanhotels/ben4.jpg
+    - images/luxorandaswanhotels/py1.jpg
+    - images/luxorandaswanhotels/py2.jpg
+    - images/luxorandaswanhotels/py3.jpg
+    - images/luxorandaswanhotels/py4.jpg
+    - images/sinahotels/ama1.jpg
+    - images/sinahotels/ama2.jpg
+    - images/sinahotels/ama3.jpg
+    - images/sinahotels/ama4.jpg
+    - images/sinahotels/sun1.jpg
+    - images/sinahotels/sun2.jpg
+    - images/sinahotels/sun3.jpg
+    - images/sinahotels/sun4.jpg
+    - images/sinahotels/sina1.jpg
+    - images/sinahotels/sina2.jpg
+    - images/sinahotels/sina3.jpg
+    - images/sinahotels/sina4.jpg
+    - images/sinahotels/sinaa1.jpg
+    - images/sinahotels/sinaa2.jpg
+    - images/sinahotels/sinaa3.jpg
+    - images/sinahotels/sinaa4.jpg
+    - images/sinahotels/cha1.jpg
+    - images/sinahotels/cha2.jpg
+    - images/sinahotels/cha3.jpg
+    - images/sinahotels/cha4.jpg
+    - images/siwahotels/alb1.jpg
+    - images/siwahotels/alb2.jpg
+    - images/siwahotels/alb3.jpg
+    - images/siwahotels/alb4.jpg
+    - images/siwahotels/for1.jpg
+    - images/siwahotels/for2.jpg
+    - images/siwahotels/for3.jpg
+    - images/siwahotels/for4.jpg
+    - images/siwahotels/shali1.jpg
+    - images/siwahotels/shali2.jpg
+    - images/siwahotels/shali3.jpg
+    - images/siwahotels/shali4.jpg
+    - images/siwahotels/para1.jpg
+    - images/siwahotels/para2.jpg
+    - images/siwahotels/para3.jpg
+    - images/siwahotels/para4.jpg
+    - images/siwahotels/camp1.jpg
+    - images/siwahotels/camp2.jpg
+    - images/siwahotels/camp3.jpg
+    - images/siwahotels/camp4.jpg
+    - images/cairoplaces/tower1.jpg
+    - images/cairoplaces/tower2.jpg
+    - images/cairoplaces/tower3.jpg
+    - images/cairoplaces/tower4.jpg
+    - images/cairoplaces/khan1.jpg
+    - images/cairoplaces/khan2.jpg
+    - images/cairoplaces/khan3.jpg
+    - images/cairoplaces/khan4'.jpg
+    - images/cairoplaces/mus1.jpg
+    - images/cairoplaces/mus2.jpg
+    - images/cairoplaces/mus3.jpg
+    - images/cairoplaces/mus4.jpg
+    - images/cairoplaces/the1.jpg
+    - images/cairoplaces/the2.jpg
+    - images/cairoplaces/the3.jpg
+    - images/cairoplaces/the4.jpg
+    - images/cairoplaces/py1.jpg
+    - images/cairoplaces/py2.jpg
+    - images/cairoplaces/py3.jpg
+    - images/cairoplaces/py4.jpg
+    - images/alexplaces/an1.jpg
+    - images/alexplaces/an2.jpg
+    - images/alexplaces/an3.jpg
+    - images/alexplaces/an4.jpg
+    - images/alexplaces/geo1.jpg
+    - images/alexplaces/geo2.jpg
+    - images/alexplaces/geo3.jpg
+    - images/alexplaces/geo4.jpg
+    - images/alexplaces/mon1.jpg
+    - images/alexplaces/mon2.jpg
+    - images/alexplaces/mon3.jpg
+    - images/alexplaces/mon4.jpg
+    - images/alexplaces/ro1.jpg
+    - images/alexplaces/ro2.jpg
+    - images/alexplaces/ro3.jpg
+    - images/alexplaces/ro4.jpg
+    - images/alexplaces/arch1.jpg
+    - images/alexplaces/arch2.jpg
+    - images/alexplaces/arch3.jpg
+    - images/alexplaces/arch4.jpg
+    - images/hurghadaplaces/dol1.jpg
+    - images/hurghadaplaces/dol2.jpg
+    - images/hurghadaplaces/dol3.jpg
+    - images/hurghadaplaces/dol4.jpg
+    - images/hurghadaplaces/grand1.jpg
+    - images/hurghadaplaces/grand2.jpg
+    - images/hurghadaplaces/grand3.jpg
+    - images/hurghadaplaces/grand4.jpg
+    - images/hurghadaplaces/mah1.jpg
+    - images/hurghadaplaces/mah2.jpg
+    - images/hurghadaplaces/mah3.jpg
+    - images/hurghadaplaces/mah4.jpg
+    - images/hurghadaplaces/mak1.jpg
+    - images/hurghadaplaces/mak2.jpg
+    - images/hurghadaplaces/mak3.jpg
+    - images/hurghadaplaces/mak4.jpg
+    - images/hurghadaplaces/par1.jpg
+    - images/hurghadaplaces/par2.jpg
+    - images/hurghadaplaces/par3.jpg
+    - images/hurghadaplaces/par4.jpg
+    - images/luxorandaswanplaces/mon1.jpg
+    - images/luxorandaswanplaces/mon2.jpg
+    - images/luxorandaswanplaces/mon3.jpg
+    - images/luxorandaswanplaces/mon4.jpg
+    - images/luxorandaswanplaces/kar1.jpg
+    - images/luxorandaswanplaces/kar2.jpg
+    - images/luxorandaswanplaces/kar3.jpg
+    - images/luxorandaswanplaces/kar4.jpg
+    - images/luxorandaswanplaces/lux1.jpg
+    - images/luxorandaswanplaces/lux2.jpg
+    - images/luxorandaswanplaces/lux3.jpg
+    - images/luxorandaswanplaces/lux4.jpg
+    - images/luxorandaswanplaces/mom1.jpg
+    - images/luxorandaswanplaces/mom2.jpg
+    - images/luxorandaswanplaces/mom3.jpg
+    - images/luxorandaswanplaces/mom4.jpg
+    - images/luxorandaswanplaces/val1.jpg
+    - images/luxorandaswanplaces/val2.jpg
+    - images/luxorandaswanplaces/val3.jpg
+    - images/luxorandaswanplaces/val4.jpg
+    - images/luxorandaswanplaces/kom1.jpg
+    - images/luxorandaswanplaces/kom2.jpg
+    - images/luxorandaswanplaces/kom3.jpg
+    - images/luxorandaswanplaces/kom4.jpg
+    - images/luxorandaswanplaces/nil1.jpg
+    - images/luxorandaswanplaces/nil2.jpg
+    - images/luxorandaswanplaces/nil3.jpg
+    - images/luxorandaswanplaces/nil4.jpg
+    - images/luxorandaswanplaces/nub1.jpg
+    - images/luxorandaswanplaces/nub2.jpg
+    - images/luxorandaswanplaces/nub3.jpg
+    - images/luxorandaswanplaces/nub4.jpg
+    - images/luxorandaswanplaces/vi1.jpg
+    - images/luxorandaswanplaces/vi2.jpg
+    - images/luxorandaswanplaces/vi3.jpg
+    - images/luxorandaswanplaces/vi4.jpg
+    - images/luxorandaswanplaces/unf1.jpg
+    - images/luxorandaswanplaces/unf2.jpg
+    - images/luxorandaswanplaces/unf3.jpg
+    - images/luxorandaswanplaces/unf4.jpg
+    - images/sinaplaces/mount1.jpg
+    - images/sinaplaces/mount2.jpg
+    - images/sinaplaces/mount3.jpg
+    - images/sinaplaces/mount4.jpg
+    - images/sinaplaces/mos1.jpg
+    - images/sinaplaces/mos2.jpg
+    - images/sinaplaces/mos3.jpg
+    - images/sinaplaces/mos4.jpg
+    - images/sinaplaces/soho1.jpg
+    - images/sinaplaces/soho2.jpg
+    - images/sinaplaces/soho3.jpg
+    - images/sinaplaces/soho4.jpg
+    - images/sinaplaces/hea1.jpg
+    - images/sinaplaces/hea2.jpg
+    - images/sinaplaces/hea3.jpg
+    - images/sinaplaces/hea4.jpg
+    - images/siwa places/mawta2.jpg
+    - images/siwa places/mawta3.jpg
+    - images/siwa places/mawta4.jpg
+    - images/siwa places/mawwta1.jpg
+    - images/siwa places/am1.jpg
+    - images/siwa places/am2.jpg
+    - images/siwa places/am3.jpg
+    - images/siwa places/am4.jpg
+    - images/siwa places/cel1.jpg
+    - images/siwa places/cel2.jpg
+    - images/siwa places/cel3.jpg
+    - images/siwa places/cel4.jpg
+    - images/siwa places/gebl1.jpg
+    - images/siwa places/gebl2.jpg
+    - images/siwa places/gebl3.jpg
+    - images/siwa places/gebl4.jpg
+    - images/siwa places/lake1.jpg
+    - images/siwa places/lake2.jpg
+    - images/siwa places/lake3.jpg
+    - images/siwa places/lake4.jpg
+    - images/cairorest/khal1.jpg
+    - images/cairorest/khal2.jpg
+    - images/cairorest/khal3.jpg
+    - images/cairorest/khal4.jpg
+    - images/cairorest/frank.jpg
+    - images/cairorest/frank2.jpg
+    - images/cairorest/frank3.jpg
+    - images/cairorest/frank4.jpg
+    - images/cairorest/sco1.jpg
+    - images/cairorest/sco2.jpg
+    - images/cairorest/sco3.jpg
+    - images/cairorest/sco4.jpg
+    - images/cairorest/zi1.jpg
+    - images/cairorest/zi2.jpg
+    - images/cairorest/zi3.jpg
+    - images/cairorest/zi4.jpg
+    - images/cairorest/bisto1.jpg
+    - images/cairorest/bisto2.jpg
+    - images/cairorest/bisto3.jpg
+    - images/cairorest/bistro4.jpg
+    - images/alexrest/gin1.jpg
+    - images/alexrest/gin2.jpg
+    - images/alexrest/gin3.jpg
+    - images/alexrest/gin4.jpg
+    - images/alexrest/mafia1.jpg
+    - images/alexrest/mafia2.jpg
+    - images/alexrest/mafia3.jpg
+    - images/alexrest/mafia4.jpg
+    - images/alexrest/blue1.jpg
+    - images/alexrest/blue2.jpg
+    - images/alexrest/blue3.jpg
+    - images/alexrest/blue4.jpg
+    - images/alexrest/kosh1.jpg
+    - images/alexrest/kosh2.jpg
+    - images/alexrest/khos3.jpg
+    - images/alexrest/khos4.jpg
+    - images/alexrest/shar2.jpg
+    - images/alexrest/shar1.jpg
+    - images/alexrest/shar3.jpg
+    - images/alexrest/shar4.jpg
+    - images/luxorandaswanres/sofra1.jpg
+    - images/luxorandaswanres/sofra2.jpg
+    - images/luxorandaswanres/sofra3.jpg
+    - images/luxorandaswanres/sofra4.jpg
+    - images/luxorandaswanres/la1.jpg
+    - images/luxorandaswanres/la2.jpg
+    - images/luxorandaswanres/la3.jpg
+    - images/luxorandaswanres/la4.jpg
+    - images/luxorandaswanres/tot1.jpg
+    - images/luxorandaswanres/tot2.jpg
+    - images/luxorandaswanres/tot3.jpg
+    - images/luxorandaswanres/tot4.jpg
+    - images/luxorandaswanres/al2.jpg
+    - images/luxorandaswanres/al3.jpg
+    - images/luxorandaswanres/al4.jpg
+    - images/luxorandaswanres/al1.jpg
+    - images/luxorandaswanres/dok2.jpg
+    - images/luxorandaswanres/dok3.jpg
+    - images/luxorandaswanres/dok4.jpg
+    - images/luxorandaswanres/dok1.jpg
+    - images/hurghadares/ca3.jpg
+    - images/hurghadares/ca2.jpg
+    - images/hurghadares/ca4.jpg
+    - images/hurghadares/ca1.jpg
+    - images/hurghadares/laa1.jpg
+    - images/hurghadares/laa2.jpg
+    - images/hurghadares/laa4.jpg
+    - images/hurghadares/laa3.jpg
+    - images/hurghadares/maka1.jpg
+    - images/hurghadares/maka2.jpg
+    - images/hurghadares/maka3.jpg
+    - images/hurghadares/maka4.jpg
+    - images/hurghadares/nino1.jpg
+    - images/hurghadares/nino2.jpg
+    - images/hurghadares/nino3.jpg
+    - images/hurghadares/nino4.jpg
+    - images/hurghadares/sof1.jpg
+    - images/hurghadares/sof2.jpg
+    - images/hurghadares/sof3.jpg
+    - images/hurghadares/sof4.jpg
+    - images/sinairest/anth1.jpg
+    - images/sinairest/anth2.jpg
+    - images/sinairest/anth3.jpg
+    - images/sinairest/anth4.jpg
+    - images/sinairest/cam1.jpg
+    - images/sinairest/cam2.jpg
+    - images/sinairest/cam3.jpg
+    - images/sinairest/cam4.jpg
+    - images/sinairest/king1.jpg
+    - images/sinairest/king2.jpg
+    - images/sinairest/king3.jpg
+    - images/sinairest/king4.jpg
+    - images/sinairest/mango1.jpg
+    - images/sinairest/mango2.jpg
+    - images/sinairest/mango3.jpg
+    - images/sinairest/mango4.jpg
+    - images/sinairest/boh1.jpg
+    - images/sinairest/boh2.jpg
+    - images/sinairest/boh3.jpg
+    - images/sinairest/boh4.jpg
+    - images/siwares/abo1.jpg
+    - images/siwares/abo2.jpg
+    - images/siwares/abo3.jpg
+    - images/siwares/takia1.jpg
+    - images/siwares/takia2.jpg
+    - images/siwares/takia3.jpg
+    - images/siwares/takia4.jpg
+    - images/siwares/nor1.jpg
+    - images/siwares/nor2.jpg
+    - images/siwares/nor3.jpg
+    - images/siwares/nor4.jpg
+    - images/siwares/al4.jpg
+    - images/siwares/al3.jpg
+    - images/siwares/al2.jpg
+    - images/siwares/al1.jpg
+    - images/siwares/jo1.jpg
+    - images/siwares/jo2.jpg
+    - images/siwares/jo3.jpg
+    - images/siwares/jo4.jpg
+    - Pdfs/menus/bistro paris cairo.pdf
+    - Pdfs/menus/boharat sina.pdf
+    - Pdfs/menus/elkhal cairo.pdf
+    - Pdfs/menus/elwaha siwa.pdf
+    - Pdfs/menus/frank and co Cairo.pdf
+    - Pdfs/menus/ginger alex.pdf
+    - Pdfs/menus/lantern luxor.pdf
+    - Pdfs/menus/mafia alex.pdf
+    - Pdfs/menus/mango sinaa.pdf
+    - Pdfs/menus/ninos hurghada.pdf
+    - Pdfs/menus/sofra hurghada.pdf
+    - Pdfs/menus/sofra luxor.pdf
+    - Pdfs/menus/tahrer.pdf
+    - Pdfs/menus/takeyet elamir.pdf
+    
+    
+  fonts:
+    - family: Madimi One
+      fonts:
+        - asset: fonts/MadimiOne-Regular.ttf
+          weight: 700
+
