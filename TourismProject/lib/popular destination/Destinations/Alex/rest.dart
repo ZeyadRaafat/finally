@@ -1,5 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:syncfusion_flutter_pdfviewer/pdfviewer.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -214,12 +215,12 @@ class _ScreenTwoState extends State<ScreenTwo> {
               style: TextStyle(
                 fontFamily: 'MadimiOne',
                 color: Color.fromARGB(255, 121, 155, 230),
-                fontSize: 25,
+                fontSize: 25.sp,
                 fontWeight: FontWeight.bold,
               ),
             ),
           ),
-          SizedBox(height: 20),
+          SizedBox(height: 20.h),
           for (int i = 0; i < alexRests.length; i++)
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -234,12 +235,12 @@ class _ScreenTwoState extends State<ScreenTwo> {
                                 image: AssetImage(imagePath),
                                 fit: BoxFit.cover,
                               ),
-                              borderRadius: BorderRadius.circular(25),
+                              borderRadius: BorderRadius.circular(25.r),
                             ),
                           ))
                       .toList(),
                   options: CarouselOptions(
-                    height: 180,
+                    height: 180.h,
                     aspectRatio: 16 / 9,
                     viewportFraction: 0.8,
                     autoPlay: false,
@@ -251,26 +252,26 @@ class _ScreenTwoState extends State<ScreenTwo> {
                     },
                   ),
                 ),
-                SizedBox(height: 10),
+                SizedBox(height: 10.h),
                 buildIndicator(
                     activeIndices[i], alexRests[i].imagePaths.length),
-                SizedBox(height: 10),
+                SizedBox(height: 10.h),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16),
                   child: Row(
                     children: [
-                      SizedBox(width: 8),
+                      SizedBox(width: 8.w),
                       Text(
                         alexRests[i].name,
                         style: TextStyle(
-                          fontSize: 20,
+                          fontSize: 20.sp,
                           fontWeight: FontWeight.bold,
                           fontFamily: 'MadimiOne',
                           color: Color.fromARGB(255, 83, 137, 182),
                         ),
                         textAlign: TextAlign.left,
                       ),
-                      SizedBox(width: 8),
+                      SizedBox(width: 8.w),
                       GestureDetector(
                         onTap: () {
                           _launchURL(alexRests[i]
@@ -281,7 +282,7 @@ class _ScreenTwoState extends State<ScreenTwo> {
                           color: Color.fromARGB(255, 5, 59, 107),
                         ),
                       ),
-                      SizedBox(width: 8),
+                      SizedBox(width: 8.w),
                       GestureDetector(
                         onTap: () {
                           toggleFavoriteStatus(i);
@@ -301,7 +302,7 @@ class _ScreenTwoState extends State<ScreenTwo> {
                           color: Color.fromARGB(255, 13, 16, 74),
                         ),
                       ),
-                      SizedBox(width: 8),
+                      SizedBox(width: 8.w),
                       GestureDetector(
                         onTap: () {
                           if (alexRests[i].pdfPath.isNotEmpty) {
@@ -326,7 +327,7 @@ class _ScreenTwoState extends State<ScreenTwo> {
                           color: Color.fromARGB(255, 13, 16, 74),
                         ),
                       ),
-                      SizedBox(width: 8),
+                      SizedBox(width: 8.w),
                       GestureDetector(
                         onTap: () {
                           _launchURL(
@@ -340,20 +341,20 @@ class _ScreenTwoState extends State<ScreenTwo> {
                     ],
                   ),
                 ),
-                SizedBox(height: 5),
+                SizedBox(height: 5.h),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16),
                   child: Text(
                     alexRests[i].description,
                     style: TextStyle(
-                      fontSize: 16,
+                      fontSize: 16.sp,
                       color: Color.fromARGB(255, 36, 108, 163),
                       fontFamily: 'MadimiOne',
                     ),
                     textAlign: TextAlign.left,
                   ),
                 ),
-                SizedBox(height: 10),
+                SizedBox(height: 10.h),
               ],
             ),
         ],
@@ -367,8 +368,8 @@ class _ScreenTwoState extends State<ScreenTwo> {
         activeIndex: activeIndex,
         count: length,
         effect: WormEffect(
-          dotWidth: 18,
-          dotHeight: 18,
+          dotWidth: 18.w,
+          dotHeight: 18.h,
           activeDotColor: Colors.blue,
           dotColor: Color.fromARGB(255, 16, 65, 106),
         ),

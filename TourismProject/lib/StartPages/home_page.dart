@@ -134,6 +134,7 @@ class _HomepageState extends State<Homepage> {
       body: CustomScrollView(
         slivers: [
           SliverAppBar(
+            backgroundColor: Color.fromARGB(255,121, 155, 228),
             title: Row(
               mainAxisSize: MainAxisSize.min,
               children: [
@@ -158,7 +159,7 @@ class _HomepageState extends State<Homepage> {
             centerTitle: true,
             stretch: true,
             expandedHeight: 250,
-            pinned: false,
+            pinned: true,
             flexibleSpace: FlexibleSpaceBar(
               stretchModes: [StretchMode.blurBackground],
               background: Container(

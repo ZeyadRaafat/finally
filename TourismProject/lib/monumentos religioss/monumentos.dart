@@ -1,5 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class MonumentPlaces {
@@ -127,7 +128,7 @@ class _monumentosState extends State<monumentos> {
                           ))
                       .toList(),
                   options: CarouselOptions(
-                    height: 180,
+                    height: 180.h,
                     aspectRatio: 16 / 9,
                     viewportFraction: 0.8,
                     autoPlay: false,
@@ -139,10 +140,10 @@ class _monumentosState extends State<monumentos> {
                     },
                   ),
                 ),
-                SizedBox(height: 10),
+                SizedBox(height: 10.h),
                 buildIndicator(
                     activeIndices[i], monumentPlacesList[i].imagePaths.length),
-                SizedBox(height: 10),
+                SizedBox(height: 10.h),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16),
                   child: Row(
@@ -150,7 +151,7 @@ class _monumentosState extends State<monumentos> {
                       Text(
                         monumentPlacesList[i].name,
                         style: TextStyle(
-                          fontSize: 20,
+                          fontSize: 20.sp,
                           fontWeight: FontWeight.bold,
                           fontFamily: 'MadimiOne',
                           color: Color.fromARGB(255, 83, 137, 182),
@@ -162,22 +163,22 @@ class _monumentosState extends State<monumentos> {
                     ],
                   ),
                 ),
-                SizedBox(height: 5),
+                SizedBox(height: 5.h),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16),
                   child: Text(
                     monumentPlacesList[i].description,
                     style: TextStyle(
-                      fontSize: 16,
+                      fontSize: 16.sp,
                       color: Color.fromARGB(255, 36, 108, 163),
                       fontFamily: 'MadimiOne',
                     ),
                     textAlign: TextAlign.left,
                   ),
                 ),
-                SizedBox(height: 5),
+                SizedBox(height: 5.h),
 
-                SizedBox(height: 10),
+                SizedBox(height: 10.h),
               ],
             ),
         ],
@@ -191,8 +192,8 @@ class _monumentosState extends State<monumentos> {
         activeIndex: activeIndex,
         count: length,
         effect: WormEffect(
-          dotWidth: 18,
-          dotHeight: 18,
+          dotWidth: 18.w,
+          dotHeight: 18.h,
           activeDotColor: Colors.blue,
           dotColor: Color.fromARGB(255, 16, 65, 106),
         ),

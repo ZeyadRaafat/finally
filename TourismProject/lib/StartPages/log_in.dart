@@ -4,7 +4,9 @@ import 'package:Guide/StartPages/sign_up.dart';
 import 'package:Guide/widgets/from_conteiner_widget.dart';
 import 'package:Guide/firebase_auth_services.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'forgot_password.dart';
 
 class Login extends StatefulWidget {
   const Login({Key? key}) : super(key: key);
@@ -73,6 +75,7 @@ class LoginState extends State<Login> {
               hintText: "Password",
               isPasswordField: true,
             ),
+            
             SizedBox(height: 50),
             Container(
               width: 300,
@@ -101,6 +104,20 @@ class LoginState extends State<Login> {
             ),
             SizedBox(height: 100),
             Container(
+                    child: GestureDetector(
+                      onTap: () {
+                       Navigator.push(context,MaterialPageRoute(builder: (context) => ForgetPasswordScreen()));
+                      },
+                      child: Text(
+                        "Forgot Password ",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),),
+           //SizedBox(height: 20),
+            Container(
               width: 250,
               height: 80,
               child: Row(
@@ -128,7 +145,9 @@ class LoginState extends State<Login> {
                         ),
                       ),
                     ),
-                  )
+                    
+                  ),
+                  
                 ],
               ),
             ),

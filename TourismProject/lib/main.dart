@@ -5,12 +5,14 @@ import 'package:Guide/StartPages/about_page.dart';
 import 'package:Guide/StartPages/sign_up.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:Guide/popular%20destination/Destinations/Alex/info.dart';
 import 'package:Guide/popular%20destination/Destinations/Cairo/info.dart';
 import 'package:Guide/popular%20destination/Destinations/Hurghada/info.dart';
 import 'package:Guide/popular%20destination/Destinations/LuxorAswan/info.dart';
 import 'package:Guide/popular%20destination/Destinations/Sinai/info.dart';
 import 'package:Guide/popular%20destination/Destinations/Siwa/info.dart';
+
 
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -36,30 +38,35 @@ class flutterproject extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: "tourism guide",
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primaryColor: Color(0xFFE6969),
-      ),
-      home: Homepage(),
-      initialRoute: 'homepage',
-      routes: {
-        'alex': (context) => SecRoute(),
-        'cairo': (context) => FirstRoute(),
-        'hurghad': (context) => FifthRoute(),
-        'luxAndAsw': (context) => ThirdRoute(),
-        'siwa': (context) => FourthRoute(),
-        'sinai': (context) => SixthRoute(),        
-        'login': (context) => Login(),
-        'homepage': (context) => Homepage(),
-        // 'mytrips': (context) => Mytrips(),
+    return ScreenUtilInit(
+      designSize: const Size(375, 812),
+      child: MaterialApp(
+        title: "tourism guide",
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+          primaryColor: Color(0xFFE6969),
+        ),
+        home: Homepage(),
+        initialRoute: 'homepage',
+        routes: {
+          'alex': (context) => SecRoute(),
+          'cairo': (context) => FirstRoute(),
+          'hurghad': (context) => FifthRoute(),
+          'luxAndAsw': (context) => ThirdRoute(),
+          'siwa': (context) => FourthRoute(),
+          'sinai': (context) => SixthRoute(),        
+          'login': (context) => Login(),
+          'homepage': (context) => Homepage(),
+          // 'mytrips': (context) => Mytrips(),
 
-        About.screenRoute: (context) => About(),
-        Homepage.screenRoute: (context) => Homepage(),
-        Signup.screenRoute: (context) => Signup(),
-        Login.screenRoute: (context) => Login(),
-      },
+          About.screenRoute: (context) => About(),
+          Homepage.screenRoute: (context) => Homepage(),
+          Signup.screenRoute: (context) => Signup(),
+          Login.screenRoute: (context) => Login(),
+        },
+      ),
     );
   }
 }
+
+

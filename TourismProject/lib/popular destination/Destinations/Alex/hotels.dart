@@ -1,5 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import '../Cairo/hotels.dart';
 import 'info.dart';
@@ -228,12 +229,12 @@ class _ScreenOneState extends State<ScreenOne> {
               style: TextStyle(
                 fontFamily: 'MadimiOne',
                 color: Color.fromARGB(255, 121, 155, 230),
-                fontSize: 25,
+                fontSize: 25.sp,
                 fontWeight: FontWeight.bold,
               ),
             ),
           ),
-          SizedBox(height: 20),
+          SizedBox(height: 20.h),
           for (int i = 0; i < alexHotels.length; i++)
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -253,7 +254,7 @@ class _ScreenOneState extends State<ScreenOne> {
                           ))
                       .toList(),
                   options: CarouselOptions(
-                    height: 180,
+                    height: 180.h,
                     aspectRatio: 16 / 9,
                     viewportFraction: 0.8,
                     autoPlay: false,
@@ -265,26 +266,26 @@ class _ScreenOneState extends State<ScreenOne> {
                     },
                   ),
                 ),
-                SizedBox(height: 10),
+                SizedBox(height: 10.h),
                 buildIndicator(
                     activeIndices[i], alexHotels[i].imagePaths.length),
-                SizedBox(height: 10),
+                SizedBox(height: 10.h),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16),
                   child: Row(
                     children: [
-                      SizedBox(width: 8),
+                      SizedBox(width: 8.w),
                       Text(
                         alexHotels[i].name,
                         style: TextStyle(
-                          fontSize: 20,
+                          fontSize: 20.sp,
                           fontWeight: FontWeight.bold,
                           fontFamily: 'MadimiOne',
                           color: Color.fromARGB(255, 83, 137, 182),
                         ),
                         textAlign: TextAlign.left,
                       ),
-                      SizedBox(width: 8),
+                      SizedBox(width: 8.w),
                       GestureDetector(
                         onTap: () {
                           _launchURL(alexHotels[i]
@@ -295,7 +296,7 @@ class _ScreenOneState extends State<ScreenOne> {
                           color: Color.fromARGB(255, 5, 59, 107),
                         ),
                       ),
-                      SizedBox(width: 8),
+                      SizedBox(width: 8.w),
                       GestureDetector(
                         onTap: () {
                           toggleFavoriteStatus(i);
@@ -315,7 +316,7 @@ class _ScreenOneState extends State<ScreenOne> {
                           color: Color.fromARGB(255, 13, 16, 74),
                         ),
                       ),
-                      SizedBox(width: 8),
+                      SizedBox(width: 8.w),
                       GestureDetector(
                         onTap: () {
                           _launchURL(
@@ -329,20 +330,20 @@ class _ScreenOneState extends State<ScreenOne> {
                     ],
                   ),
                 ),
-                SizedBox(height: 5),
+                SizedBox(height: 5.h),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16),
                   child: Text(
                     alexHotels[i].description,
                     style: TextStyle(
-                      fontSize: 16,
+                      fontSize: 16.sp,
                       color: Color.fromARGB(255, 36, 108, 163),
                       fontFamily: 'MadimiOne',
                     ),
                     textAlign: TextAlign.left,
                   ),
                 ),
-                SizedBox(height: 5),
+                SizedBox(height: 5.h),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16),
                   child: Row(
@@ -353,18 +354,18 @@ class _ScreenOneState extends State<ScreenOne> {
                         Text(
                           alexHotels[i].price.toString(),
                           style: TextStyle(
-                            fontSize: 16,
+                            fontSize: 16.sp,
                             color: Color.fromARGB(255, 5, 59, 107),
                             fontWeight: FontWeight.bold,
                           ),
                         ),
                       if (!isLoading && alexHotels[i].price != 0)
-                        SizedBox(width: 8),
+                        SizedBox(width: 8.w),
                       if (!isLoading && alexHotels[i].price != 0)
                         Text(
                           "EGP",
                           style: TextStyle(
-                            fontSize: 16,
+                            fontSize: 16.sp,
                             color: Color.fromARGB(255, 5, 59, 107),
                             fontWeight: FontWeight.bold,
                           ),
@@ -372,7 +373,7 @@ class _ScreenOneState extends State<ScreenOne> {
                     ],
                   ),
                 ),
-                SizedBox(height: 10),
+                SizedBox(height: 10.h),
               ],
             ),
         ],
@@ -386,8 +387,8 @@ class _ScreenOneState extends State<ScreenOne> {
         activeIndex: activeIndex,
         count: length,
         effect: WormEffect(
-          dotWidth: 18,
-          dotHeight: 18,
+          dotWidth: 18.w,
+          dotHeight: 18.h,
           activeDotColor: Colors.blue,
           dotColor: Color.fromARGB(255, 16, 65, 106),
         ),
