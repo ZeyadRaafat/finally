@@ -9,57 +9,61 @@ import '../place.dart';
 
 List<Place> sinaiPlaces = [
   Place(
-      "Sahaba Mosque",
-      [
-        'images/sinaplaces/mos1.jpg',
-        'images/sinaplaces/mos2.jpg',
-        'images/sinaplaces/mos3.jpg',
-        'images/sinaplaces/mos4.jpg',
-      ],
-      "The Sahaba Mosque: A historic mosque in Sharm El Sheikh, Egypt, honoring the companions of the Prophet Muhammad.",
-      0,
-      "https://www.tripadvisor.com/Attraction_Review-g297555-d16850020-Reviews-Al_Sahaba_Mosque-Sharm_El_Sheikh_South_Sinai_Red_Sea_and_Sinai.html",
+    "Sahaba Mosque",
+    [
+      'images/sinaplaces/mos1.jpg',
+      'images/sinaplaces/mos2.jpg',
+      'images/sinaplaces/mos3.jpg',
+      'images/sinaplaces/mos4.jpg',
+    ],
+    "The Sahaba Mosque: A historic mosque in Sharm El Sheikh, Egypt, honoring the companions of the Prophet Muhammad.",
+    0,
+    "https://www.tripadvisor.com/Attraction_Review-g297555-d16850020-Reviews-Al_Sahaba_Mosque-Sharm_El_Sheikh_South_Sinai_Red_Sea_and_Sinai.html",
+    "https://www.google.com/maps/place/Sahaba+Mosque/@27.8664178,34.2926635,17z/data=!3m1!4b1!4m6!3m5!1s0x14533a2fadcd5449:0x5d44adb200d4f8b2!8m2!3d27.8664178!4d34.2952438!16s%2Fg%2F11c1r16zgb?entry=ttu",
     false,
   ),
 
   Place(
-      "Mount Catherine",
-      [
-        'images/sinaplaces/mount1.jpg',
-        'images/sinaplaces/mount2.jpg',
-        'images/sinaplaces/mount3.jpg',
-        'images/sinaplaces/mount4.jpg',
-      ],
-      "Mount Catherine: Egypt's tallest peak, offering stunning views and challenging hikes in the Sinai Peninsula.",
-      0,
-     "https://www.britannica.com/place/Mount-Katrina",
+    "Mount Catherine",
+    [
+      'images/sinaplaces/mount1.jpg',
+      'images/sinaplaces/mount2.jpg',
+      'images/sinaplaces/mount3.jpg',
+      'images/sinaplaces/mount4.jpg',
+    ],
+    "Mount Catherine: Egypt's tallest peak, offering stunning views and challenging hikes in the Sinai Peninsula.",
+    0,
+    "https://www.britannica.com/place/Mount-Katrina",
+    "https://www.google.com/maps/place/Mount+Catherine/@28.5097214,33.9449565,15z/data=!3m1!4b1!4m6!3m5!1s0x145485210abc0239:0x41281dd36680e7b4!8m2!3d28.5097222!4d33.9552777!16zL20vMGd6bWNm?entry=ttu",
     false,
   ),
 
   Place(
-      'Soho Square Dancing',
-      [
-        'images/sinaplaces/soho1.jpg',
-        'images/sinaplaces/soho2.jpg',
-        'images/sinaplaces/soho3.jpg',
-        'images/sinaplaces/soho4.jpg',
-      ],
-      "Soho Square Dancing Fountain: Sharm El Sheikh's captivating water show with music and lights.",
-      0,
-     "https://www.tripadvisor.com/Attraction_Review-g297555-d4010193-Reviews-Soho_Square_Dancing_Fountain-Sharm_El_Sheikh_South_Sinai_Red_Sea_and_Sinai.html",
+    'Soho Square Dancing',
+    [
+      'images/sinaplaces/soho1.jpg',
+      'images/sinaplaces/soho2.jpg',
+      'images/sinaplaces/soho3.jpg',
+      'images/sinaplaces/soho4.jpg',
+    ],
+    "Soho Square Dancing Fountain: Sharm El Sheikh's captivating water show with music and lights.",
+    0,
+    "https://www.tripadvisor.com/Attraction_Review-g297555-d4010193-Reviews-Soho_Square_Dancing_Fountain-Sharm_El_Sheikh_South_Sinai_Red_Sea_and_Sinai.html",
+    "https://maps.google.com/?cid=8170284750953649346&entry=gps",
     false,
   ),
   Place(
-      'The Heavenly Cathedral',
-      [
-        'images/sinaplaces/hea1.jpg',
-        'images/sinaplaces/hea2.jpg',
-        'images/sinaplaces/hea3.jpg',
-        'images/sinaplaces/hea4.jpg',
-      ],
-      "The Heavenly Cathedral: A serene sanctuary in Sharm El Sheikh, Egypt, inviting contemplation and prayer.",
-      0,
-      "https://www.tripadvisor.com/Attraction_Review-g297555-d2706237-Reviews-The_Heavenly_Cathedral-Sharm_El_Sheikh_South_Sinai_Red_Sea_and_Sinai.html",
+    'The Heavenly Cathedral',
+    [
+      'images/sinaplaces/hea1.jpg',
+      'images/sinaplaces/hea2.jpg',
+      'images/sinaplaces/hea3.jpg',
+      'images/sinaplaces/hea4.jpg',
+    ],
+    "The Heavenly Cathedral: A serene sanctuary in Sharm El Sheikh, Egypt, inviting contemplation and prayer.",
+    0,
+    "https://www.tripadvisor.com/Attraction_Review-g297555-d2706237-Reviews-The_Heavenly_Cathedral-Sharm_El_Sheikh_South_Sinai_Red_Sea_and_Sinai.html",
+    "https://maps.app.goo.gl/x2SFbWWhTvTzsHRV7",
     false,
   ),
 
@@ -116,8 +120,9 @@ class _ScreenThreeState extends State<ScreenThree> {
       return; // Cannot proceed without a Firestore user ID
 
     final place = sinaiPlaces[index]; // Use alexHotels instead of cairoHotels
-    final placeRef =
-        FirebaseFirestore.instance.collection('Touristic places').doc(place.name);
+    final placeRef = FirebaseFirestore.instance
+        .collection('Touristic places')
+        .doc(place.name);
     final userFavoritesRef = FirebaseFirestore.instance
         .collection('Usere')
         .doc(_firestoreUserId!)
@@ -160,6 +165,7 @@ class _ScreenThreeState extends State<ScreenThree> {
           sinaiPlaces[i].description,
           price,
           sinaiPlaces[i].url,
+          sinaiPlaces[i].locationurl,
           isFavorite,
         );
         if (price == 1) {
@@ -248,7 +254,8 @@ class _ScreenThreeState extends State<ScreenThree> {
                   ),
                 ),
                 SizedBox(height: 10),
-                buildIndicator(activeIndices[i], sinaiPlaces[i].imagePaths.length),
+                buildIndicator(
+                    activeIndices[i], sinaiPlaces[i].imagePaths.length),
                 SizedBox(height: 10),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -266,9 +273,15 @@ class _ScreenThreeState extends State<ScreenThree> {
                         textAlign: TextAlign.left,
                       ),
                       SizedBox(width: 8),
-                      Icon(
-                        Icons.location_on,
-                        color: Color.fromARGB(255, 5, 59, 107),
+                      GestureDetector(
+                        onTap: () {
+                          _launchURL(sinaiPlaces[i]
+                              .locationurl); // Launch URL when tapped
+                        },
+                        child: Icon(
+                          Icons.location_on,
+                          color: Color.fromARGB(255, 5, 59, 107),
+                        ),
                       ),
                       SizedBox(width: 8),
                       GestureDetector(
@@ -293,7 +306,8 @@ class _ScreenThreeState extends State<ScreenThree> {
                       SizedBox(width: 8),
                       GestureDetector(
                         onTap: () {
-                          _launchURL(sinaiPlaces[i].url); // Launch URL when tapped
+                          _launchURL(
+                              sinaiPlaces[i].url); // Launch URL when tapped
                         },
                         child: Icon(
                           Icons.link,
@@ -374,6 +388,7 @@ class _ScreenThreeState extends State<ScreenThree> {
       ),
     );
   }
+
   void _launchURL(String url) async {
     final Uri uri = Uri.parse(url);
     if (!await launchUrl(uri)) {

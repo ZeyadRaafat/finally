@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:new_project/StartPages/home_page.dart';
-import 'package:new_project/StartPages/sign_up.dart';
-import 'package:new_project/widgets/from_conteiner_widget.dart';
-import 'package:new_project/firebase_auth_services.dart';
+import 'package:Guide/StartPages/home_page.dart';
+import 'package:Guide/StartPages/sign_up.dart';
+import 'package:Guide/widgets/from_conteiner_widget.dart';
+import 'package:Guide/firebase_auth_services.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -78,7 +78,7 @@ class LoginState extends State<Login> {
               width: 300,
               height: 50,
               decoration: BoxDecoration(
-                color: Colors.white,
+                color: Color.fromARGB(255, 255, 253, 253),
                 borderRadius: BorderRadius.circular(25),
               ),
               child: Center(
@@ -164,22 +164,3 @@ class LoginState extends State<Login> {
 }
 
 
-//class Homepage extends StatelessWidget {
-  //const Homepage({super.key});
-  //static String id = 'homepage';
-
-  //@override
-  //Widget build(BuildContext context) {
-    //return Scaffold(
-     // appBar: AppBar(title: Text("Home Page")),
-      //body: Center(
-        //child: ElevatedButton(
-          //onPressed: () {
-            //Navigator.pop(context);
-          //},
-          //child: Text('Go Back'),
-        //),
-      //),
-    //);
-  //}
-//}

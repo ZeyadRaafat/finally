@@ -10,70 +10,70 @@ import '../restaurant.dart';
 
 List<Rest> cairoRests = [
   Rest(
-    "Al Khal Egyptian Restaurant",
-    [
-      'images/cairorest/khal1.jpg',
-      'images/cairorest/khal2.jpg',
-      'images/cairorest/khal3.jpg',
-      'images/cairorest/khal4.jpg',
-    ],
-    "Al Khal Egyptian Restaurant: A beloved eatery in Egypt, serving authentic cuisine with a warm ambiance.",
-    "https://www.tripadvisor.com/Restaurant_Review-g294201-d2715802-Reviews-or90-Al_Khal_Egyptian_Restaurant-Cairo_Cairo_Governorate.html/",
-    false, 
-    "Pdfs/menus/elkhal cairo.pdf"
-  ),
+      "Al Khal",
+      [
+        'images/cairorest/khal1.jpg',
+        'images/cairorest/khal2.jpg',
+        'images/cairorest/khal3.jpg',
+        'images/cairorest/khal4.jpg',
+      ],
+      "Al Khal Egyptian Restaurant: A beloved eatery in Egypt, serving authentic cuisine with a warm ambiance.",
+      "https://www.tripadvisor.com/Restaurant_Review-g294201-d2715802-Reviews-or90-Al_Khal_Egyptian_Restaurant-Cairo_Cairo_Governorate.html/",
+      "https://maps.app.goo.gl/CmDYS5mhf1cqS5gLA",
+      false,
+      "Pdfs/menus/elkhal cairo.pdf"),
   Rest(
-    "Frank and Co restaurant",
-    [
-      'images/cairorest/frank.jpg',
-      'images/cairorest/frank2.jpg',
-      'images/cairorest/frank3.jpg',
-      'images/cairorest/frank4.jpg',
-    ],
-    "Frank and Co Restaurant: A cozy dining establishment known for its welcoming atmosphere and delicious food in Egypt.",
-    "https://www.tripadvisor.com/Restaurant_Review-g294201-d13277057-Reviews-Frank_and_Co-Cairo_Cairo_Governorate.html/",
-    false,
-    "Pdfs/menus/frank and co Cairo.pdf"
-  ),
+      "Frank and Co restaurant",
+      [
+        'images/cairorest/frank.jpg',
+        'images/cairorest/frank2.jpg',
+        'images/cairorest/frank3.jpg',
+        'images/cairorest/frank4.jpg',
+      ],
+      "Frank and Co Restaurant: A cozy dining establishment known for its welcoming atmosphere and delicious food in Egypt.",
+      "https://www.tripadvisor.com/Restaurant_Review-g294201-d13277057-Reviews-Frank_and_Co-Cairo_Cairo_Governorate.html/",
+      "https://maps.app.goo.gl/jQ5bkwQY2vfdhUfZ7",
+      false,
+      "Pdfs/menus/frank and co Cairo.pdf"),
   Rest(
-    'Scores Sports',
-    [
-      'images/cairorest/sco1.jpg',
-      'images/cairorest/sco2.jpg',
-      'images/cairorest/sco3.jpg',
-      'images/cairorest/sco4.jpg',
-    ],
-    "Scores Sports Bar & Restaurant: A vibrant venue in Egypt, offering a lively atmosphere, delicious food, and live sports entertainment.",
-    "https://www.tripadvisor.com/Restaurant_Review-g294201-d14774406-Reviews-Scores_Sports_Bar_Restaurant-Cairo_Cairo_Governorate.html/",
-    false,
-    ""
-  ),
+      'Scores Sports',
+      [
+        'images/cairorest/sco1.jpg',
+        'images/cairorest/sco2.jpg',
+        'images/cairorest/sco3.jpg',
+        'images/cairorest/sco4.jpg',
+      ],
+      "Scores Sports Bar & Restaurant: A vibrant venue in Egypt, offering a lively atmosphere, delicious food, and live sports entertainment.",
+      "https://www.tripadvisor.com/Restaurant_Review-g294201-d14774406-Reviews-Scores_Sports_Bar_Restaurant-Cairo_Cairo_Governorate.html/",
+      "https://maps.app.goo.gl/tPEpwP52ozdsbrga7",
+      false,
+      ""),
   Rest(
-    'Zi bar bar &restaurant',
-    [
-      'images/cairorest/zi1.jpg',
-      'images/cairorest/zi2.jpg',
-      'images/cairorest/zi3.jpg',
-      'images/cairorest/zi4.jpg',
-    ],
-    "Zi Bar & Restaurant: A trendy spot in Egypt, blending chic ambiance with delectable cuisine for a memorable dining experience.",
-    "http://zilounge.com/",
-    false,
-    ""
-  ),
+      'Zi bar bar &restaurant',
+      [
+        'images/cairorest/zi1.jpg',
+        'images/cairorest/zi2.jpg',
+        'images/cairorest/zi3.jpg',
+        'images/cairorest/zi4.jpg',
+      ],
+      "Zi Bar & Restaurant: A trendy spot in Egypt, blending chic ambiance with delectable cuisine for a memorable dining experience.",
+      "http://zilounge.com/",
+      "https://maps.app.goo.gl/shxca3JL9zyDqwoa6",
+      false,
+      ""),
   Rest(
-    'Bistro Paris Maadi',
-    [
-      'images/cairorest/bisto1.jpg',
-      'images/cairorest/bisto2.jpg',
-      'images/cairorest/bisto3.jpg',
-      'images/cairorest/bistro4.jpg',
-    ],
-    "Bistro Paris: A charming eatery in Egypt, evoking the ambiance of a Parisian café with delicious French-inspired cuisine.",
-    "https://www.tripadvisor.com/LocationPhotoDirectLink-g294201-d25333819-i676620050-Bistro_Paris_Maadi-Cairo_Cairo_Governorate.html/",
-    false,
-    "Pdfs/menus/bistro paris cairo.pdf"
-  ),
+      'Bistro Paris Maadi',
+      [
+        'images/cairorest/bisto1.jpg',
+        'images/cairorest/bisto2.jpg',
+        'images/cairorest/bisto3.jpg',
+        'images/cairorest/bistro4.jpg',
+      ],
+      "Bistro Paris: A charming eatery in Egypt, evoking the ambiance of a Parisian café with delicious French-inspired cuisine.",
+      "https://www.tripadvisor.com/LocationPhotoDirectLink-g294201-d25333819-i676620050-Bistro_Paris_Maadi-Cairo_Cairo_Governorate.html/",
+      "https://maps.app.goo.gl/7gSVQoT19opQDAnk7",
+      false,
+      "Pdfs/menus/bistro paris cairo.pdf"),
   // Add more hotels here
 ];
 
@@ -168,20 +168,18 @@ class _ScreenTwoState extends State<ScreenTwo> {
         bool isFavorite = document.get('isFavourite');
         cairoRests[i] = Rest(
           cairoRests[i].name,
-        cairoRests[i].imagePaths,
-        cairoRests[i].description,
-        cairoRests[i].url,
-        isFavorite,
-        cairoRests[i].pdfPath,
-        
+          cairoRests[i].imagePaths,
+          cairoRests[i].description,
+          cairoRests[i].url,
+          cairoRests[i].locationurl,
+          isFavorite,
+          cairoRests[i].pdfPath,
         );
       } else {
         print('Document does not exist');
       }
     }
   }
-
-  
 
   @override
   Widget build(BuildContext context) {
@@ -273,9 +271,15 @@ class _ScreenTwoState extends State<ScreenTwo> {
                         textAlign: TextAlign.left,
                       ),
                       SizedBox(width: 8),
-                      Icon(
-                        Icons.location_on,
-                        color: Color.fromARGB(255, 5, 59, 107),
+                      GestureDetector(
+                        onTap: () {
+                          _launchURL(cairoRests[i]
+                              .locationurl); // Launch URL when tapped
+                        },
+                        child: Icon(
+                          Icons.location_on,
+                          color: Color.fromARGB(255, 5, 59, 107),
+                        ),
                       ),
                       SizedBox(width: 8),
                       GestureDetector(
@@ -297,7 +301,7 @@ class _ScreenTwoState extends State<ScreenTwo> {
                           color: Color.fromARGB(255, 13, 16, 74),
                         ),
                       ),
-                       SizedBox(width: 8),
+                      SizedBox(width: 8),
                       GestureDetector(
                         onTap: () {
                           if (cairoRests[i].pdfPath.isNotEmpty) {
@@ -379,6 +383,7 @@ class _ScreenTwoState extends State<ScreenTwo> {
     }
   }
 }
+
 class PDFScreen extends StatelessWidget {
   final String pdfPath;
 
@@ -391,14 +396,14 @@ class PDFScreen extends StatelessWidget {
         title: Text(
           'Restaurant\'s menu',
           style: TextStyle(
-             color: Color.fromARGB(255, 121, 155, 228), // Text color
+            color: Color.fromARGB(255, 121, 155, 228), // Text color
             fontWeight: FontWeight.bold, // Bold text
             fontFamily: 'MadimiOne', // Font family
           ),
         ),
       ),
       body: SfPdfViewer.asset(
-         pdfPath,
+        pdfPath,
       ),
     );
   }

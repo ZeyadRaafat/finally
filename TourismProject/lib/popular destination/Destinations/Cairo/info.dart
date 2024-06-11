@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:new_project/popular%20destination/home_view.dart';
+import 'package:Guide/popular%20destination/home_view.dart';
 import './Specification.dart';
 
 

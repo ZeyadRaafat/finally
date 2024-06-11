@@ -9,68 +9,73 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 
 List<Place> alexPlaces = [
   Place(
-      "Ancient Roman Theater",
-      [
-        'images/alexplaces/an1.jpg',
-        'images/alexplaces/an2.jpg',
-        'images/alexplaces/an3.jpg',
-        'images/alexplaces/an4.jpg',
-      ],
-      "The Ancient Roman Theater: a historic gem preserving ancient performances and culture.",
-      1,
-      "https://www.britannica.com/art/Western-theatre/Ancient-Rome",
+    "Ancient Roman Theater",
+    [
+      'images/alexplaces/an1.jpg',
+      'images/alexplaces/an2.jpg',
+      'images/alexplaces/an3.jpg',
+      'images/alexplaces/an4.jpg',
+    ],
+    "The Ancient Roman Theater: a historic gem preserving ancient performances and culture.",
+    1,
+    "https://www.britannica.com/art/Western-theatre/Ancient-Rome",
+    "https://maps.app.goo.gl/88S9d6svMs215LEVA",
     false,
   ),
   Place(
-      "Gerco-Roman Museum",
-      [
-        'images/alexplaces/geo1.jpg',
-        'images/alexplaces/geo2.jpg',
-        'images/alexplaces/geo3.jpg',
-        'images/alexplaces/geo4.jpg',
-      ],
-      "The Greco-Roman Museum in Egypt preserves artifacts from its Hellenistic and Roman periods.",
-      1,
-      "https://egymonuments.gov.eg/museums/graeco-roman-museum/",
+    "Gerco-Roman Museum",
+    [
+      'images/alexplaces/geo1.jpg',
+      'images/alexplaces/geo2.jpg',
+      'images/alexplaces/geo3.jpg',
+      'images/alexplaces/geo4.jpg',
+    ],
+    "The Greco-Roman Museum in Egypt preserves artifacts from its Hellenistic and Roman periods.",
+    1,
+    "https://egymonuments.gov.eg/museums/graeco-roman-museum/",
+    "https://maps.app.goo.gl/FzbRDTBnHQ3XxoHe8",
     false,
   ),
   Place(
-      'Montaza Palace',
-      [
-        'images/alexplaces/mon1.jpg',
-        'images/alexplaces/mon2.jpg',
-        'images/alexplaces/mon3.jpg',
-        'images/alexplaces/mon4.jpg',
-      ],
-      "Montaza Palace: a charming seaside retreat in Alexandria, Egypt, with stunning gardens and regal architecture.",
-      1,
-      "https://www.tripadvisor.com/Attraction_Review-g295398-d550320-Reviews-Montazah_Gardens-Alexandria_Alexandria_Governorate.html",
+    'Montaza Palace',
+    [
+      'images/alexplaces/mon1.jpg',
+      'images/alexplaces/mon2.jpg',
+      'images/alexplaces/mon3.jpg',
+      'images/alexplaces/mon4.jpg',
+    ],
+    "Montaza Palace: a charming seaside retreat in Alexandria, Egypt, with stunning gardens and regal architecture.",
+    1,
+    "https://www.tripadvisor.com/Attraction_Review-g295398-d550320-Reviews-Montazah_Gardens-Alexandria_Alexandria_Governorate.html",
+    "https://maps.app.goo.gl/7bZFHwsrzgQ2e6gt8",
     false,
   ),
   Place(
-      'Royal Jewerly Museum',
-      [
-        'images/alexplaces/ro1.jpg',
-        'images/alexplaces/ro2.jpg',
-        'images/alexplaces/ro3.jpg',
-        'images/alexplaces/ro4.jpg',
-      ],
-      "The Royal Jewelry Museum: a treasure trove of exquisite jewels and royal artifacts nestled in Alexandria, Egypt.",
-      1,
-     "	https://www.tripadvisor.com/Attraction_Review-g295398-d1997633-Reviews-Royal_Jewelry_Museum-Alexandria_Alexandria_Governorate.html",
+    'Royal Jewerly Museum',
+    [
+      'images/alexplaces/ro1.jpg',
+      'images/alexplaces/ro2.jpg',
+      'images/alexplaces/ro3.jpg',
+      'images/alexplaces/ro4.jpg',
+    ],
+    "The Royal Jewelry Museum: a treasure trove of exquisite jewels and royal artifacts nestled in Alexandria, Egypt.",
+    1,
+    "	https://www.tripadvisor.com/Attraction_Review-g295398-d1997633-Reviews-Royal_Jewelry_Museum-Alexandria_Alexandria_Governorate.html",
+    "https://maps.app.goo.gl/ciDDZFN92fMzErkQ9",
     false,
   ),
   Place(
-      'The Archaeological Museum',
-      [
-        'images/alexplaces/arch1.jpg',
-        'images/alexplaces/arch2.jpg',
-        'images/alexplaces/arch3.jpg',
-        'images/alexplaces/arch4.jpg',
-      ],
-      "The Archaeological Museum: a repository of ancient artifacts and historical treasures.",
-      1,
-      "https://www.namuseum.gr/en/",
+    'The Archaeological Museum',
+    [
+      'images/alexplaces/arch1.jpg',
+      'images/alexplaces/arch2.jpg',
+      'images/alexplaces/arch3.jpg',
+      'images/alexplaces/arch4.jpg',
+    ],
+    "The Archaeological Museum: a repository of ancient artifacts and historical treasures.",
+    1,
+    "https://www.namuseum.gr/en/",
+    "https://maps.app.goo.gl/yuSSk2X2HcuyMZY59",
     false,
   ),
 ];
@@ -125,8 +130,9 @@ class _ScreenThreeState extends State<ScreenThree> {
       return; // Cannot proceed without a Firestore user ID
 
     final place = alexPlaces[index]; // Use alexHotels instead of cairoHotels
-    final placeRef =
-        FirebaseFirestore.instance.collection('Touristic places').doc(place.name);
+    final placeRef = FirebaseFirestore.instance
+        .collection('Touristic places')
+        .doc(place.name);
     final userFavoritesRef = FirebaseFirestore.instance
         .collection('Usere')
         .doc(_firestoreUserId!)
@@ -169,6 +175,7 @@ class _ScreenThreeState extends State<ScreenThree> {
           alexPlaces[i].description,
           price,
           alexPlaces[i].url,
+          alexPlaces[i].locationurl,
           isFavorite,
         );
         if (price == 1) {
@@ -257,7 +264,8 @@ class _ScreenThreeState extends State<ScreenThree> {
                   ),
                 ),
                 SizedBox(height: 10),
-                buildIndicator(activeIndices[i], alexPlaces[i].imagePaths.length),
+                buildIndicator(
+                    activeIndices[i], alexPlaces[i].imagePaths.length),
                 SizedBox(height: 10),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -275,9 +283,15 @@ class _ScreenThreeState extends State<ScreenThree> {
                         textAlign: TextAlign.left,
                       ),
                       SizedBox(width: 8),
-                      Icon(
-                        Icons.location_on,
-                        color: Color.fromARGB(255, 5, 59, 107),
+                      GestureDetector(
+                        onTap: () {
+                          _launchURL(alexPlaces[i]
+                              .locationurl); // Launch URL when tapped
+                        },
+                        child: Icon(
+                          Icons.location_on,
+                          color: Color.fromARGB(255, 5, 59, 107),
+                        ),
                       ),
                       SizedBox(width: 8),
                       GestureDetector(
@@ -302,7 +316,8 @@ class _ScreenThreeState extends State<ScreenThree> {
                       SizedBox(width: 8),
                       GestureDetector(
                         onTap: () {
-                          _launchURL(alexPlaces[i].url); // Launch URL when tapped
+                          _launchURL(
+                              alexPlaces[i].url); // Launch URL when tapped
                         },
                         child: Icon(
                           Icons.link,
@@ -383,6 +398,7 @@ class _ScreenThreeState extends State<ScreenThree> {
       ),
     );
   }
+
   void _launchURL(String url) async {
     final Uri uri = Uri.parse(url);
     if (!await launchUrl(uri)) {

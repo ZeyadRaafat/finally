@@ -9,65 +9,75 @@ import '../hotel.dart';
 
 List<Hotel> siwaHotels = [
   Hotel(
-      name:"Albabenshal-guest House",
-     imagePaths: [
+      name: "Albabenshal-guest House",
+      imagePaths: [
         'images/siwahotels/alb1.jpg',
         'images/siwahotels/alb2.jpg',
         'images/siwahotels/alb3.jpg',
         'images/siwahotels/alb4.jpg',
       ],
-     description: "Albabenshal Guest House: Your cozy retreat in siwa",
-      price:0,
-      url:"https://www.tripadvisor.com/Hotel_Review-g303857-d1013378-Reviews-Albabenshal-Siwa_Matrouh_Governorate.html",
-     isFavorite: false),
+      description: "Albabenshal Guest House: Your cozy retreat in siwa",
+      price: 0,
+      url:
+          "https://www.tripadvisor.com/Hotel_Review-g303857-d1013378-Reviews-Albabenshal-Siwa_Matrouh_Governorate.html",
+      locationurl: "https://maps.app.goo.gl/jru13ZKiBm3RnRYq6",
+      isFavorite: false),
   Hotel(
-      name:"Forest camp Siwa",
-     imagePaths: [
+      name: "Forest camp Siwa",
+      imagePaths: [
         'images/siwahotels/for1.jpg',
         'images/siwahotels/for2.jpg',
         'images/siwahotels/for3.jpg',
         'images/siwahotels/for4.jpg',
       ],
-      description:"Forest Camp Siwa: Your serene oasis amidst nature's embrace.",
-      price:0,
-     url: "https://www.tripadvisor.com/Hotel_Review-g303857-d27162328-Reviews-Forest_Camp_Siwa-Siwa_Matrouh_Governorate.html",
-      isFavorite:false),
+      description:
+          "Forest Camp Siwa: Your serene oasis amidst nature's embrace.",
+      price: 0,
+      url:
+          "https://www.tripadvisor.com/Hotel_Review-g303857-d27162328-Reviews-Forest_Camp_Siwa-Siwa_Matrouh_Governorate.html",
+      locationurl: "https://maps.app.goo.gl/XpLMxvXnG7fxZnnSA",
+      isFavorite: false),
   Hotel(
-      name:'Shali Ladge',
-     imagePaths: [
+      name: 'Shali Ladge',
+      imagePaths: [
         'images/siwahotels/shali1.jpg',
         'images/siwahotels/shali2.jpg',
         'images/siwahotels/shali3.jpg',
         'images/siwahotels/shali4.jpg',
       ],
-      description:"Shali Lodge: Your serene oasis in Siwa",
-     price: 0,
-      url:"https://www.siwashaliresort.com/index.html",
-     isFavorite: false),
+      description: "Shali Lodge: Your serene oasis in Siwa",
+      price: 0,
+      url: "https://www.siwashaliresort.com/index.html",
+      locationurl: "https://maps.app.goo.gl/Z4TjzYPF9QShWXKm7",
+      isFavorite: false),
   Hotel(
-     name: 'Siwa Paradise',
-     imagePaths: [
+      name: 'Siwa Paradise',
+      imagePaths: [
         'images/siwahotels/para1.jpg',
         'images/siwahotels/para2.jpg',
         'images/siwahotels/para3.jpg',
         'images/siwahotels/para4.jpg',
       ],
-     description: "Siwa Paradise: Where desert serenity meets comfort, promising an unforgettable oasis retreat.",
-     price: 0,
-      url:"https://siwa-paradise-siwa-oasis.albooked.com/",
-     isFavorite: false),
+      description:
+          "Siwa Paradise: Where desert serenity meets comfort, promising an unforgettable oasis retreat.",
+      price: 0,
+      url: "https://siwa-paradise-siwa-oasis.albooked.com/",
+      locationurl: "https://maps.app.goo.gl/EXAX74NPwEHnziAe9",
+      isFavorite: false),
   Hotel(
-     name: 'Siwa Camp Osman Oasis',
-     imagePaths: [
+      name: 'Siwa Camp Osman Oasis',
+      imagePaths: [
         'images/siwahotels/camp1.jpg',
         'images/siwahotels/camp2.jpg',
         'images/siwahotels/camp3.jpg',
         'images/siwahotels/camp4.jpg',
       ],
-     description: "Siwa Camp Osman Oasis: Your tranquil retreat amidst the beauty of Siwa's natural splendor.",
-     price: 0,
-     url: "https://www.booking.com/hotel/eg/siwa-camp-osman-oasis.html",
-     isFavorite: false),
+      description:
+          "Siwa Camp Osman Oasis: Your tranquil retreat amidst the beauty of Siwa's natural splendor.",
+      price: 0,
+      url: "https://www.booking.com/hotel/eg/siwa-camp-osman-oasis.html",
+      locationurl: "https://maps.app.goo.gl/gfcqqGKpbimQCqUQA",
+      isFavorite: false),
   // Add more hotels here
 ];
 
@@ -166,6 +176,7 @@ class _ScreenOneState extends State<ScreenOne> {
           description: siwaHotels[i].description,
           price: price,
           url: siwaHotels[i].url,
+          locationurl: siwaHotels[i].locationurl,
           isFavorite: isFavorite, // Set the retrieved isFavorite value
         );
 
@@ -274,9 +285,15 @@ class _ScreenOneState extends State<ScreenOne> {
                         textAlign: TextAlign.left,
                       ),
                       SizedBox(width: 8),
-                      Icon(
-                        Icons.location_on,
-                        color: Color.fromARGB(255, 5, 59, 107),
+                      GestureDetector(
+                        onTap: () {
+                          _launchURL(siwaHotels[i]
+                              .locationurl); // Launch URL when tapped
+                        },
+                        child: Icon(
+                          Icons.location_on,
+                          color: Color.fromARGB(255, 5, 59, 107),
+                        ),
                       ),
                       SizedBox(width: 8),
                       GestureDetector(

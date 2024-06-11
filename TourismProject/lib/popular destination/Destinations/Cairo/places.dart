@@ -19,6 +19,7 @@ List<Place> cairoPlaces = [
     "The Cairo Tower offers panoramic views of the bustling cityscape of Cairo, Egypt.",
     1,
     "https://www.tripadvisor.com/Attraction_Review-g294201-d459794-Reviews-Cairo_Tower-Cairo_Cairo_Governorate.html",
+    "https://maps.app.goo.gl/p3ptpQkAAyJiKqHc6",
     false,
   ),
   Place(
@@ -32,6 +33,7 @@ List<Place> cairoPlaces = [
     "Khan el-Khalili: Cairo's bustling historic bazaar.",
     1,
     "https://www.introducingegypt.com/khan-el-khalili",
+    "https://maps.app.goo.gl/jE9nKTTNdt5qqg6a8",
     false,
   ),
   Place(
@@ -45,6 +47,7 @@ List<Place> cairoPlaces = [
     "The Egyptian Museum: home to Tutankhamun's treasures and mummies.",
     1,
     "https://egyptianmuseumcairo.eg/",
+    "https://maps.app.goo.gl/xG59qTMhrtzrDwj69",
     false,
   ),
   Place(
@@ -58,6 +61,7 @@ List<Place> cairoPlaces = [
     "The Hanging Church in Cairo is an ancient Egyptian church known for its unique architecture.",
     1,
     "http://www.coptic-cairo.com/oldcairo/church/mollaqa/mollaqa.html",
+    "https://maps.app.goo.gl/HzwQoZjftbFRW6SJ9",
     false,
   ),
   Place(
@@ -71,6 +75,7 @@ List<Place> cairoPlaces = [
     "The Pyramids: iconic ancient structures standing tall in Egypt's desert sands.",
     1,
     "	https://www.britannica.com/topic/Pyramids-of-Giza",
+    "https://maps.app.goo.gl/g8Xb5SvTZXm9iy3S7",
     false,
   ),
   // Add more hotels here
@@ -171,6 +176,7 @@ class _ScreenThreeState extends State<ScreenThree> {
           cairoPlaces[i].description,
           price,
           cairoPlaces[i].url,
+          cairoPlaces[i].locationurl,
           isFavorite,
         );
         if (price == 1) {
@@ -278,9 +284,15 @@ class _ScreenThreeState extends State<ScreenThree> {
                         textAlign: TextAlign.left,
                       ),
                       SizedBox(width: 8),
-                      Icon(
-                        Icons.location_on,
-                        color: Color.fromARGB(255, 5, 59, 107),
+                      GestureDetector(
+                        onTap: () {
+                          _launchURL(cairoPlaces[i]
+                              .locationurl); // Launch URL when tapped
+                        },
+                        child: Icon(
+                          Icons.location_on,
+                          color: Color.fromARGB(255, 5, 59, 107),
+                        ),
                       ),
                       SizedBox(width: 8),
                       GestureDetector(

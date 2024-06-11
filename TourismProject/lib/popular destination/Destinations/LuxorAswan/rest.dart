@@ -8,7 +8,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../restaurant.dart';
 
-List<Rest> luxorAswanRests= [
+List<Rest> luxorAswanRests = [
   Rest(
       "Sofra",
       [
@@ -18,10 +18,10 @@ List<Rest> luxorAswanRests= [
         'images/luxorandaswanres/sofra4.jpg',
       ],
       "Sofra Restaurant: A popular dining destination in Egypt, renowned for its authentic and mouthwatering Egyptian cuisine served in a cozy and welcoming atmosphere.",
-       "https://www.sofra.com.eg/",
-    false,
-     "Pdfs/menus/sofra luxor.pdf"
-  ),
+      "https://www.sofra.com.eg/",
+      "https://www.google.com/maps/place/Sofra/@25.6948529,32.6398246,17z/data=!3m1!4b1!4m6!3m5!1s0x144915cce7c96959:0xab55aa77b2c4e009!8m2!3d25.6948529!4d32.6424049!16s%2Fg%2F1typqy3l?entry=ttu",
+      false,
+      "Pdfs/menus/sofra luxor.pdf"),
   Rest(
       "The Lantern Room",
       [
@@ -31,10 +31,10 @@ List<Rest> luxorAswanRests= [
         'images/luxorandaswanres/la4.jpg',
       ],
       "The Lantern Room Restaurant: A cozy dining spot in Egypt, offering delicious food and a warm ambiance, perfect for a memorable meal with loved ones.",
-     "https://www.tripadvisor.com/Restaurant_Review-g294205-d754056-Reviews-The_Lantern_Room_Restaurant-Luxor_Nile_River_Valley.html/",
-    false,
-     "Pdfs/menus/lantern luxor.pdf"
-  ),
+      "https://www.tripadvisor.com/Restaurant_Review-g294205-d754056-Reviews-The_Lantern_Room_Restaurant-Luxor_Nile_River_Valley.html/",
+      "https://www.google.com/maps/place/The+Lantern+Room+Restaurant/@25.6874577,32.6301785,17z/data=!3m1!4b1!4m6!3m5!1s0x1449142f18336c13:0x9861c12f36be041f!8m2!3d25.6874577!4d32.6327588!16s%2Fg%2F1tdj6d11?entry=ttu",
+      false,
+      "Pdfs/menus/lantern luxor.pdf"),
   Rest(
       'Tout Ankh Amoun Restaurant',
       [
@@ -44,10 +44,10 @@ List<Rest> luxorAswanRests= [
         'images/luxorandaswanres/tot4.jpg',
       ],
       "Tout Ankh Amoun Restaurant: A charming eatery in Egypt, named after the legendary Pharaoh, offering delectable cuisine and a unique dining experience inspired by ancient Egyptian culture.",
-       "https://www.tripadvisor.co.uk/Restaurant_Review-g19118142-d23309219-Reviews-Tut_Ankh_Amun-Al_Badrashin_Giza_Governorate.html/",
-    false,
-    ""
-  ),
+      "https://www.tripadvisor.co.uk/Restaurant_Review-g19118142-d23309219-Reviews-Tut_Ankh_Amun-Al_Badrashin_Giza_Governorate.html/",
+      "https://www.google.com/maps/place/%D9%85%D8%B7%D8%B9%D9%85+%D8%AA%D9%88%D8%AA+%D8%B9%D9%86%D8%AE+%D8%A7%D9%85%D9%88%D9%86+Tout+Ankh+Amoun+Restaurant%E2%80%AD/@25.702674,32.6310864,17z/data=!3m1!4b1!4m6!3m5!1s0x144915d133ed5fbd:0x288f49fed5aa0fa!8m2!3d25.702674!4d32.6336667!16s%2Fg%2F11g01vg9ql?entry=ttu",
+      false,
+      ""),
   Rest(
       'Almasry Restaurant',
       [
@@ -58,9 +58,9 @@ List<Rest> luxorAswanRests= [
       ],
       "Almasry Restaurant: A beloved eatery in Egypt, serving authentic Egyptian cuisine with a friendly vibe.",
       "https://www.tripadvisor.com/Restaurant_Review-g294204-d1488292-Reviews-Al_Masry-Aswan_Aswan_Governorate_Nile_River_Valley.html/",
-    false,
-    ""
-  ),
+      "https://maps.app.goo.gl/d7YFbE731v4BvQY26",
+      false,
+      ""),
   Rest(
       'ElDokka Restaurant',
       [
@@ -71,9 +71,9 @@ List<Rest> luxorAswanRests= [
       ],
       "ElDokka Restaurant: A charming spot in Egypt for a cozy meal with tasty dishes.",
       "https://www.tripadvisor.com/Restaurant_Review-g294204-d1309045-Reviews-El_Dokka-Aswan_Aswan_Governorate_Nile_River_Valley.html/",
-    false,
-    ""
-  ),
+      "https://maps.app.goo.gl/iK9NqmvPG5iXr2TCA",
+      false,
+      ""),
   // Add more hotels here
 ];
 
@@ -168,12 +168,12 @@ class _ScreenTwoState extends State<ScreenTwo> {
         bool isFavorite = document.get('isFavourite');
         luxorAswanRests[i] = Rest(
           luxorAswanRests[i].name,
-        luxorAswanRests[i].imagePaths,
-        luxorAswanRests[i].description,
-        luxorAswanRests[i].url,
-        isFavorite,
-        luxorAswanRests[i].pdfPath,
-        
+          luxorAswanRests[i].imagePaths,
+          luxorAswanRests[i].description,
+          luxorAswanRests[i].url,
+          luxorAswanRests[i].locationurl,
+          isFavorite,
+          luxorAswanRests[i].pdfPath,
         );
       } else {
         print('Document does not exist');
@@ -271,9 +271,15 @@ class _ScreenTwoState extends State<ScreenTwo> {
                         textAlign: TextAlign.left,
                       ),
                       SizedBox(width: 8),
-                      Icon(
-                        Icons.location_on,
-                        color: Color.fromARGB(255, 5, 59, 107),
+                      GestureDetector(
+                        onTap: () {
+                          _launchURL(luxorAswanRests[i]
+                              .locationurl); // Launch URL when tapped
+                        },
+                        child: Icon(
+                          Icons.location_on,
+                          color: Color.fromARGB(255, 5, 59, 107),
+                        ),
                       ),
                       SizedBox(width: 8),
                       GestureDetector(
@@ -302,8 +308,8 @@ class _ScreenTwoState extends State<ScreenTwo> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) =>
-                                    PDFScreen(pdfPath: luxorAswanRests[i].pdfPath),
+                                builder: (context) => PDFScreen(
+                                    pdfPath: luxorAswanRests[i].pdfPath),
                               ),
                             );
                           } else {
@@ -323,7 +329,8 @@ class _ScreenTwoState extends State<ScreenTwo> {
                       SizedBox(width: 8),
                       GestureDetector(
                         onTap: () {
-                          _launchURL(luxorAswanRests[i].url); // Launch URL when tapped
+                          _launchURL(
+                              luxorAswanRests[i].url); // Launch URL when tapped
                         },
                         child: Icon(
                           Icons.link,
@@ -368,6 +375,7 @@ class _ScreenTwoState extends State<ScreenTwo> {
       ),
     );
   }
+
   void _launchURL(String url) async {
     final Uri uri = Uri.parse(url);
     if (!await launchUrl(uri)) {
@@ -375,6 +383,7 @@ class _ScreenTwoState extends State<ScreenTwo> {
     }
   }
 }
+
 class PDFScreen extends StatelessWidget {
   final String pdfPath;
 
@@ -387,7 +396,7 @@ class PDFScreen extends StatelessWidget {
         title: Text(
           'Restaurant\'s menu',
           style: TextStyle(
-             color: Color.fromARGB(255, 121, 155, 228), // Text color
+            color: Color.fromARGB(255, 121, 155, 228), // Text color
             fontWeight: FontWeight.bold, // Bold text
             fontFamily: 'MadimiOne', // Font family
           ),

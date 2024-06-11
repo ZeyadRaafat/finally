@@ -9,71 +9,76 @@ import '../place.dart';
 
 List<Place> siwaPlaces = [
   Place(
-      "Al-mawta Mountain",
-      [
-        'images/siwa places/mawta2.jpg',
-        'images/siwa places/mawta3.jpg',
-        'images/siwa places/mawta4.jpg',
-        'images/siwa places/mawwta1.jpg',
-      ],
-      "Al-Mawta Mountain: A rugged peak in Egypt's Sinai Peninsula, perfect for adventurous hikes and desert views.",
-      0,
-      "https://www.lonelyplanet.com/egypt/western-desert/siwa-oasis/attractions/gebel-al-mawta/a/poi-sig/495956/355278",
+    "Al-mawta Mountain",
+    [
+      'images/siwa places/mawta2.jpg',
+      'images/siwa places/mawta3.jpg',
+      'images/siwa places/mawta4.jpg',
+      'images/siwa places/mawwta1.jpg',
+    ],
+    "Al-Mawta Mountain: A rugged peak in Egypt's Sinai Peninsula, perfect for adventurous hikes and desert views.",
+    0,
+    "https://www.lonelyplanet.com/egypt/western-desert/siwa-oasis/attractions/gebel-al-mawta/a/poi-sig/495956/355278",
+    "https://maps.app.goo.gl/pk5mhVqwvo3dBCwg6",
     false,
   ),
 
   Place(
-      "Amun Temple",
-      [
-        'images/siwa places/am1.jpg',
-        'images/siwa places/am2.jpg',
-        'images/siwa places/am3.jpg',
-        'images/siwa places/am4.jpg',
-      ],
-      "Amun Temple: An ancient Egyptian temple complex in Karnak, Luxor, dedicated to the god Amun, showcasing impressive columns and religious significance.",
-      0,
+    "Amun Temple",
+    [
+      'images/siwa places/am1.jpg',
+      'images/siwa places/am2.jpg',
+      'images/siwa places/am3.jpg',
+      'images/siwa places/am4.jpg',
+    ],
+    "Amun Temple: An ancient Egyptian temple complex in Karnak, Luxor, dedicated to the god Amun, showcasing impressive columns and religious significance.",
+    0,
     "https://www.khanacademy.org/humanities/ap-art-history/ancient-mediterranean-ap/ancient-egypt-ap/a/karnak",
+    "https://maps.app.goo.gl/TELYFBstret5NFrc8",
     false,
   ),
 
   Place(
-      'Cleopatra Springs',
-      [
-        'images/siwa places/cel1.jpg',
-        'images/siwa places/cel2.jpg',
-        'images/siwa places/cel3.jpg',
-        'images/siwa places/cel4.jpg',
-      ],
-      "Cleopatra Springs: Natural hot springs near the Red Sea in Egypt, renowned for their therapeutic properties and scenic surroundings.",
-      0,
-     "https://www.tripadvisor.com/Attraction_Review-g303857-d600497-Reviews-Cleopatra_s_Pool_Spring_of_Juba-Siwa_Matrouh_Governorate.html",
+    'Cleopatra Springs',
+    [
+      'images/siwa places/cel1.jpg',
+      'images/siwa places/cel2.jpg',
+      'images/siwa places/cel3.jpg',
+      'images/siwa places/cel4.jpg',
+    ],
+    "Cleopatra Springs: Natural hot springs near the Red Sea in Egypt, renowned for their therapeutic properties and scenic surroundings.",
+    0,
+    "https://www.tripadvisor.com/Attraction_Review-g303857-d600497-Reviews-Cleopatra_s_Pool_Spring_of_Juba-Siwa_Matrouh_Governorate.html",
+    "https://maps.app.goo.gl/AtXXiySK66NfXWej6",
     false,
   ),
   Place(
-      'Gebel Dakrour',
-      [
-        'images/siwa places/gebl1.jpg',
-        'images/siwa places/gebl2.jpg',
-        'images/siwa places/gebl3.jpg',
-        'images/siwa places/gebl4.jpg',
-      ],
-      "Gebel Dakrour: A scenic desert peak in Egypt, perfect for outdoor adventures like hiking and camping.",
-      0,
-     "https://www.etltravel.com/egypt/gebel-dakrour-siwa-oasis/",
+    'Gebel Dakrour',
+    [
+      'images/siwa places/gebl1.jpg',
+      'images/siwa places/gebl2.jpg',
+      'images/siwa places/gebl3.jpg',
+      'images/siwa places/gebl4.jpg',
+    ],
+    "Gebel Dakrour: A scenic desert peak in Egypt, perfect for outdoor adventures like hiking and camping.",
+    0,
+    "https://www.etltravel.com/egypt/gebel-dakrour-siwa-oasis/",
+    "https://maps.app.goo.gl/amfTtF4KGZCxA6RR8",
     false,
   ),
 
   Place(
-      'Siwa Lake',
-      [
-        'images/siwa places/lake1.jpg',
-        'images/siwa places/lake2.jpg',
-        'images/siwa places/lake3.jpg',
-        'images/siwa places/lake4.jpg',
-      ],
-      "Siwa Lake: An idyllic desert oasis in Egypt, perfect for relaxation and exploration.",
-      0,
+    'Siwa Lake',
+    [
+      'images/siwa places/lake1.jpg',
+      'images/siwa places/lake2.jpg',
+      'images/siwa places/lake3.jpg',
+      'images/siwa places/lake4.jpg',
+    ],
+    "Siwa Lake: An idyllic desert oasis in Egypt, perfect for relaxation and exploration.",
+    0,
     "https://www.tripadvisor.com/Attraction_Review-g303857-d600499-Reviews-Lake_Siwa-Siwa_Matrouh_Governorate.html",
+    "https://maps.app.goo.gl/38dVDWSucXgmK8zz5",
     false,
   ),
 
@@ -130,8 +135,9 @@ class _ScreenThreeState extends State<ScreenThree> {
       return; // Cannot proceed without a Firestore user ID
 
     final place = siwaPlaces[index]; // Use alexHotels instead of cairoHotels
-    final placeRef =
-        FirebaseFirestore.instance.collection('Touristic places').doc(place.name);
+    final placeRef = FirebaseFirestore.instance
+        .collection('Touristic places')
+        .doc(place.name);
     final userFavoritesRef = FirebaseFirestore.instance
         .collection('Usere')
         .doc(_firestoreUserId!)
@@ -174,6 +180,7 @@ class _ScreenThreeState extends State<ScreenThree> {
           siwaPlaces[i].description,
           price,
           siwaPlaces[i].url,
+          siwaPlaces[i].locationurl,
           isFavorite,
         );
         if (price == 1) {
@@ -262,7 +269,8 @@ class _ScreenThreeState extends State<ScreenThree> {
                   ),
                 ),
                 SizedBox(height: 10),
-                buildIndicator(activeIndices[i], siwaPlaces[i].imagePaths.length),
+                buildIndicator(
+                    activeIndices[i], siwaPlaces[i].imagePaths.length),
                 SizedBox(height: 10),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -280,9 +288,15 @@ class _ScreenThreeState extends State<ScreenThree> {
                         textAlign: TextAlign.left,
                       ),
                       SizedBox(width: 8),
-                      Icon(
-                        Icons.location_on,
-                        color: Color.fromARGB(255, 5, 59, 107),
+                      GestureDetector(
+                        onTap: () {
+                          _launchURL(siwaPlaces[i]
+                              .locationurl); // Launch URL when tapped
+                        },
+                        child: Icon(
+                          Icons.location_on,
+                          color: Color.fromARGB(255, 5, 59, 107),
+                        ),
                       ),
                       SizedBox(width: 8),
                       GestureDetector(
@@ -307,7 +321,8 @@ class _ScreenThreeState extends State<ScreenThree> {
                       SizedBox(width: 8),
                       GestureDetector(
                         onTap: () {
-                          _launchURL(siwaPlaces[i].url); // Launch URL when tapped
+                          _launchURL(
+                              siwaPlaces[i].url); // Launch URL when tapped
                         },
                         child: Icon(
                           Icons.link,
@@ -388,6 +403,7 @@ class _ScreenThreeState extends State<ScreenThree> {
       ),
     );
   }
+
   void _launchURL(String url) async {
     final Uri uri = Uri.parse(url);
     if (!await launchUrl(uri)) {

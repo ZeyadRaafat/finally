@@ -4,6 +4,7 @@ class Hotel {
   final String description;
   final int price;
   final String url;
+  final String locationurl;
   bool isFavorite;
 
   Hotel({
@@ -12,6 +13,7 @@ class Hotel {
     required this.description,
     required this.price,
     required this.url,
+    required this.locationurl,
     required this.isFavorite,
   });
 }

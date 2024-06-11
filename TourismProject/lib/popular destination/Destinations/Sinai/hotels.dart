@@ -9,64 +9,76 @@ import '../hotel.dart';
 
 List<Hotel> sinaiHotels = [
   Hotel(
-     name: "Amar Sina Boutique Village",
-     imagePaths: [
+      name: "Amar Sina Boutique Village",
+      imagePaths: [
         'images/sinahotels/ama1.jpg',
         'images/sinahotels/ama2.jpg',
         'images/sinahotels/ama3.jpg',
         'images/sinahotels/ama4.jpg',
       ],
-      description:"Amar Sina Boutique Village: A charming oasis in the heart of the Red Sea.",
-     price: 0,
-      url:"https://amarsinavillage.com-sharmelsheikh.com/ar/",
-     isFavorite:  false),
+      description:
+          "Amar Sina Boutique Village: A charming oasis in the heart of the Red Sea.",
+      price: 0,
+      url: "https://amarsinavillage.com-sharmelsheikh.com/ar/",
+      locationurl:
+          "https://www.google.com/maps/place/Amar+Sina+Boutique+Village+%D9%82%D8%B1%D9%8A%D8%A9+%D9%82%D9%85%D8%B1+%D8%B3%D9%8A%D9%86%D8%A7%E2%80%AD/@27.8700597,34.3071756,17z/data=!3m1!4b1!4m9!3m8!1s0x14533a1f89077e95:0xeff56338b1d05e54!5m2!4m1!1i2!8m2!3d27.870055!4d34.3097505!16s%2Fg%2F1tgkdkq3?entry=ttu",
+      isFavorite: false),
   Hotel(
-     name: "Sunrise Arabian Beach",
-      imagePaths:[
+      name: "Sunrise Arabian Beach",
+      imagePaths: [
         'images/sinahotels/sun1.jpg',
         'images/sinahotels/sun2.jpg',
         'images/sinahotels/sun3.jpg',
         'images/sinahotels/sun4.jpg',
       ],
-      description:"Sunrise Arabian Beach Resort: Luxury meets the shore for an unforgettable coastal escape.",
-     price: 0,
-     url: "https://www.sunrise-resorts.com/arabian-beach-resort",
-     isFavorite:  false),
+      description:
+          "Sunrise Arabian Beach Resort: Luxury meets the shore for an unforgettable coastal escape.",
+      price: 0,
+      url: "https://www.sunrise-resorts.com/arabian-beach-resort",
+      locationurl: "https://maps.app.goo.gl/xBxnvHTQ1FAVCEpu7",
+      isFavorite: false),
   Hotel(
-      name:'sinai grand resort',
-     imagePaths: [
+      name: 'sinai grand resort',
+      imagePaths: [
         'images/sinahotels/sina1.jpg',
         'images/sinahotels/sina2.jpg',
         'mages/sinahotels/sina3.jpg',
         'images/sinahotels/sina4.jpg',
       ],
-      description:"Sinai Grand Resort: Luxurious tranquility awaits at our serene escape.",
-     price: 0,
-     url: "https://www.tripadvisor.com/Hotel_Review-g297555-d583853-Reviews-or15-Sinai_Grand_Resort-Sharm_El_Sheikh_South_Sinai_Red_Sea_and_Sinai.html",
-    isFavorite:   false),
+      description:
+          "Sinai Grand Resort: Luxurious tranquility awaits at our serene escape.",
+      price: 0,
+      url:
+          "https://www.tripadvisor.com/Hotel_Review-g297555-d583853-Reviews-or15-Sinai_Grand_Resort-Sharm_El_Sheikh_South_Sinai_Red_Sea_and_Sinai.html",
+      locationurl: "https://maps.app.goo.gl/vAYWE1YPMa1MnEWbA",
+      isFavorite: false),
   Hotel(
-      name:'sinaway Lagoon Hotel & Spa',
-      imagePaths:[
+      name: 'sinaway Lagoon Hotel & Spa',
+      imagePaths: [
         'images/sinahotels/sinaa1.jpg',
         'images/sinahotels/sinaa2.jpg',
         'images/sinahotels/sinaa3.jpg',
         'images/sinahotels/sinaa4.jpg',
       ],
-      description:"Sinaway Lagoon: Your serene Red Sea getaway awaits.",
-      price:0,
-      url:"https://sinaway-lagoon-hotel-and-spa-ras-sedr.albooked.com/",
+      description: "Sinaway Lagoon: Your serene Red Sea getaway awaits.",
+      price: 0,
+      url: "https://sinaway-lagoon-hotel-and-spa-ras-sedr.albooked.com/",
+      locationurl: "https://maps.app.goo.gl/Ucc63UPhfopfi7kd7",
       isFavorite: false),
   Hotel(
-     name: 'Charmillion Club Resort',
-     imagePaths: [
+      name: 'Charmillion Club Resort',
+      imagePaths: [
         'images/sinahotels/cha1.jpg',
         'images/sinahotels/cha2.jpg',
         'images/sinahotels/cha3.jpg',
         'images/sinahotels/cha4.jpg',
       ],
-      description:"Charmillion Club Resort: Your Red Sea retreat awaits.",
-      price:0,
-     url: "https://charmillionresorts.com/ar/%D8%A7%D9%84%D8%B1%D8%A6%D9%8A%D8%B3%D9%8A%D8%A9/%D9%85%D9%86%D8%AA%D8%AC%D8%B9-%D8%B4%D8%A7%D8%B1%D9%85%D9%8A%D9%84%D9%8A%D9%88%D9%86-%D9%83%D9%84%D9%88%D8%A8/",
+      description: "Charmillion Club Resort: Your Red Sea retreat awaits.",
+      price: 0,
+      url:
+          "https://charmillionresorts.com/ar/%D8%A7%D9%84%D8%B1%D8%A6%D9%8A%D8%B3%D9%8A%D8%A9/%D9%85%D9%86%D8%AA%D8%AC%D8%B9-%D8%B4%D8%A7%D8%B1%D9%85%D9%8A%D9%84%D9%8A%D9%88%D9%86-%D9%83%D9%84%D9%88%D8%A8/",
+      locationurl:
+          "https://www.google.com/maps/place/Charmillion+Club+Resort/@28.0048695,34.4234868,16z/data=!4m13!1m2!2m1!1z4oCqQ2hhcm1pbGxpb24gQ2x1YiBSZXNvcnTigKw!3m9!1s0x14534bf833105c87:0xbace759a704dd0e4!5m2!4m1!1i2!8m2!3d27.9996304!4d34.4318219!15sCh3igKpDaGFybWlsbGlvbiBDbHViIFJlc29ydOKArFoZIhdjaGFybWlsbGlvbiBjbHViIHJlc29ydJIBBWhvdGVs4AEA!16s%2Fg%2F1tf62s6f?entry=ttu",
       isFavorite: false),
   // Add more hotels here
 ];
@@ -165,6 +177,7 @@ class _ScreenOneState extends State<ScreenOne> {
           description: sinaiHotels[i].description,
           price: price,
           url: sinaiHotels[i].url,
+          locationurl: sinaiHotels[i].locationurl,
           isFavorite: isFavorite,
         );
         if (price == 0) {
@@ -272,9 +285,15 @@ class _ScreenOneState extends State<ScreenOne> {
                         textAlign: TextAlign.left,
                       ),
                       SizedBox(width: 8),
-                      Icon(
-                        Icons.location_on,
-                        color: Color.fromARGB(255, 5, 59, 107),
+                      GestureDetector(
+                        onTap: () {
+                          _launchURL(sinaiHotels[i]
+                              .locationurl); // Launch URL when tapped
+                        },
+                        child: Icon(
+                          Icons.location_on,
+                          color: Color.fromARGB(255, 5, 59, 107),
+                        ),
                       ),
                       SizedBox(width: 8),
                       GestureDetector(

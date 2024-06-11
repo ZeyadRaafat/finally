@@ -20,9 +20,9 @@ List<Rest> hurghadaRests = [
       ],
       "Corala Restaurant: A charming seaside eatery in Egypt, serving fresh seafood with picturesque views.",
       "https://www.tripadvisor.com.eg/Restaurant_Review-g424910-d5970375-Reviews-Corallo_Sea_Food_Almaza_Bay-Mersa_Matruh_Matrouh_Governorate.html/",
-    false,
-    ""
-  ),
+      "https://www.google.com/maps/place/Corallo/@27.0912931,33.8440293,17z/data=!3m1!4b1!4m6!3m5!1s0x145281ace8910705:0xd2f7a11f18421de0!8m2!3d27.0912931!4d33.8466096!16s%2Fg%2F11fsh7p9kt?entry=ttu",
+      false,
+      ""),
   Rest(
       "La Cantina",
       [
@@ -32,10 +32,10 @@ List<Rest> hurghadaRests = [
         'images/hurghadares/laa3.jpg',
       ],
       "La Cantina Restaurant and Bar: A vibrant dining venue in Egypt, offering delicious cuisine and refreshing drinks in a lively atmosphere.",
-     "https://www.tripadvisor.com/Restaurant_Review-g297549-d25409730-Reviews-La_Cantina-Hurghada_Red_Sea_and_Sinai.html/",
-    false,
-    ""
-  ),
+      "https://www.tripadvisor.com/Restaurant_Review-g297549-d25409730-Reviews-La_Cantina-Hurghada_Red_Sea_and_Sinai.html/",
+      "https://www.google.com/maps/place/La+Cantina+Restaurant+and+Bar/@27.2268658,33.8387855,17z/data=!3m1!4b1!4m6!3m5!1s0x145287040356ae4f:0x7a32f5c9b735f5d0!8m2!3d27.2268658!4d33.8413658!16s%2Fg%2F11tgdbh4r1?entry=ttu",
+      false,
+      ""),
   Rest(
       'MAKAI TUKAI',
       [
@@ -45,10 +45,10 @@ List<Rest> hurghadaRests = [
         'images/hurghadares/maka4.jpg',
       ],
       "Makai Tukai: A cozy eatery in Egypt, serving flavorful dishes in a relaxed setting, perfect for a casual dining experience.",
-     "https://www.tripadvisor.com.eg/Restaurant_Review-g297549-d7313956-Reviews-Makai_Tukai_Restaurant-Hurghada_Red_Sea_and_Sinai.html/",
-    false,
-    ""
-  ),
+      "https://www.tripadvisor.com.eg/Restaurant_Review-g297549-d7313956-Reviews-Makai_Tukai_Restaurant-Hurghada_Red_Sea_and_Sinai.html/",
+      "https://www.google.com/maps/place/MAKAI+TUKAI/@27.0909035,33.7641797,12z/data=!4m6!3m5!1s0x14528130eb49c401:0x9d1ae08c4fd164f7!8m2!3d27.0909757!4d33.8471072!16s%2Fg%2F11j2vy6515?entry=ttu",
+      false,
+      ""),
   Rest(
       'Nino\'s Resturant',
       [
@@ -59,9 +59,9 @@ List<Rest> hurghadaRests = [
       ],
       "Nino's Restaurant: A favorite spot in Egypt for delicious food in a cozy atmosphere.",
       "https://www.tripadvisor.com/Restaurant_Review-g297549-d7173339-Reviews-Nino_s_Restaurant-Hurghada_Red_Sea_and_Sinai.html/",
-    false,
-    "Pdfs/menus/ninos hurghada.pdf"
-  ),
+      "https://www.google.com/maps/place/Nino's+Restaurant/@27.0926936,33.8449733,17z/data=!3m1!4b1!4m6!3m5!1s0x145281d5fcac98d5:0x52e81ce324fccb05!8m2!3d27.0926936!4d33.8475536!16s%2Fg%2F11c1s353m8?entry=ttu",
+      false,
+      "Pdfs/menus/ninos hurghada.pdf"),
   Rest(
       'Sofra Oriental',
       [
@@ -71,10 +71,10 @@ List<Rest> hurghadaRests = [
         'images/hurghadares/sof4.jpg',
       ],
       "Sofra Oriental: Egypt's go-to for authentic Oriental cuisine in a cozy setting.",
-     "https://www.tripadvisor.com/Restaurant_Review-g297549-d3752928-Reviews-or60-Sofra-Hurghada_Red_Sea_and_Sinai.html/",
-    false,
-    "Pdfs/menus/sofra hurghada.pdf"
-  ),
+      "https://www.tripadvisor.com/Restaurant_Review-g297549-d3752928-Reviews-or60-Sofra-Hurghada_Red_Sea_and_Sinai.html/",
+      "https://www.google.com/maps/place/Sofra+Oriental/@26.9888564,33.8946539,17z/data=!3m1!4b1!4m6!3m5!1s0x144d7bfc771702e1:0xe9db48e54a29fb30!8m2!3d26.9888516!4d33.8972288!16s%2Fg%2F1tdnhdpp?entry=ttu",
+      false,
+      "Pdfs/menus/sofra hurghada.pdf"),
   // Add more hotels here
 ];
 
@@ -169,12 +169,12 @@ class _ScreenTwoState extends State<ScreenTwo> {
         bool isFavorite = document.get('isFavourite');
         hurghadaRests[i] = Rest(
           hurghadaRests[i].name,
-        hurghadaRests[i].imagePaths,
-        hurghadaRests[i].description,
-        hurghadaRests[i].url,
-        isFavorite,
-        hurghadaRests[i].pdfPath,
-        
+          hurghadaRests[i].imagePaths,
+          hurghadaRests[i].description,
+          hurghadaRests[i].url,
+          hurghadaRests[i].locationurl,
+          isFavorite,
+          hurghadaRests[i].pdfPath,
         );
       } else {
         print('Document does not exist');
@@ -272,9 +272,15 @@ class _ScreenTwoState extends State<ScreenTwo> {
                         textAlign: TextAlign.left,
                       ),
                       SizedBox(width: 8),
-                      Icon(
-                        Icons.location_on,
-                        color: Color.fromARGB(255, 5, 59, 107),
+                      GestureDetector(
+                        onTap: () {
+                          _launchURL(hurghadaRests[i]
+                              .locationurl); // Launch URL when tapped
+                        },
+                        child: Icon(
+                          Icons.location_on,
+                          color: Color.fromARGB(255, 5, 59, 107),
+                        ),
                       ),
                       SizedBox(width: 8),
                       GestureDetector(
@@ -296,15 +302,15 @@ class _ScreenTwoState extends State<ScreenTwo> {
                           color: Color.fromARGB(255, 13, 16, 74),
                         ),
                       ),
-                       SizedBox(width: 8),
+                      SizedBox(width: 8),
                       GestureDetector(
                         onTap: () {
                           if (hurghadaRests[i].pdfPath.isNotEmpty) {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) =>
-                                    PDFScreen(pdfPath: hurghadaRests[i].pdfPath),
+                                builder: (context) => PDFScreen(
+                                    pdfPath: hurghadaRests[i].pdfPath),
                               ),
                             );
                           } else {
@@ -324,7 +330,8 @@ class _ScreenTwoState extends State<ScreenTwo> {
                       SizedBox(width: 8),
                       GestureDetector(
                         onTap: () {
-                          _launchURL(hurghadaRests[i].url); // Launch URL when tapped
+                          _launchURL(
+                              hurghadaRests[i].url); // Launch URL when tapped
                         },
                         child: Icon(
                           Icons.link,
@@ -369,6 +376,7 @@ class _ScreenTwoState extends State<ScreenTwo> {
       ),
     );
   }
+
   void _launchURL(String url) async {
     final Uri uri = Uri.parse(url);
     if (!await launchUrl(uri)) {
@@ -376,6 +384,7 @@ class _ScreenTwoState extends State<ScreenTwo> {
     }
   }
 }
+
 class PDFScreen extends StatelessWidget {
   final String pdfPath;
 
@@ -388,7 +397,7 @@ class PDFScreen extends StatelessWidget {
         title: Text(
           'Restaurant\'s menu',
           style: TextStyle(
-             color: Color.fromARGB(255, 121, 155, 228), // Text color
+            color: Color.fromARGB(255, 121, 155, 228), // Text color
             fontWeight: FontWeight.bold, // Bold text
             fontFamily: 'MadimiOne', // Font family
           ),

@@ -21,6 +21,7 @@ List<Hotel> alexHotels = [
           "Hotels offer a temporary haven, providing comfort, convenience, and often a touch of luxury for travelers seeking respite from their journeys.",
       price: 0,
       url: "https://www.hilton.com/en/hotels/cairhtw-ramses-hilton/",
+      locationurl: "https://maps.app.goo.gl/5BagZnX3FkNQB7wP9",
       isFavorite: false),
   Hotel(
       name: "Green Plaza Inn",
@@ -34,6 +35,7 @@ List<Hotel> alexHotels = [
           "From opulent suites to cozy rooms, hotels offer a spectrum of accommodations to suit every taste and budget.",
       price: 0,
       url: "https://www.hilton.com/en/hotels/cairhtw-ramses-hilton/",
+      locationurl: "https://maps.app.goo.gl/fVAMoGT9ri5Xcvfn9",
       isFavorite: false),
   Hotel(
       name: 'Hilton Alexandria Corniche',
@@ -47,6 +49,7 @@ List<Hotel> alexHotels = [
           "Hotels welcome weary travelers with open arms, offering a sanctuary where comfort meets convenience.",
       price: 0,
       url: "https://www.hilton.com/en/hotels/cairhtw-ramses-hilton/",
+      locationurl: "https://maps.app.goo.gl/dkvCvDp1ss1yUafh6",
       isFavorite: false),
   Hotel(
       name: 'Royal Crown Hotel',
@@ -60,6 +63,7 @@ List<Hotel> alexHotels = [
           "Indulge in a world of comfort and luxury at our exquisite hotel, where every moment is crafted to exceed your expectations and leave you with cherished memories to last a lifetime",
       price: 0,
       url: "https://www.hilton.com/en/hotels/cairhtw-ramses-hilton/",
+      locationurl: "https://maps.app.goo.gl/V65mZdsQBXiAum8F8",
       isFavorite: false),
   Hotel(
       name: 'Semiramis Hotel',
@@ -73,6 +77,7 @@ List<Hotel> alexHotels = [
           "Experience the epitome of luxury and sophistication at Semirames Hotel, where timeless elegance meets modern comfort, creating an unforgettable oasis for discerning travelers.",
       price: 0,
       url: "https://www.hilton.com/en/hotels/cairhtw-ramses-hilton/",
+      locationurl: "https://maps.app.goo.gl/SoHExAQc28ymgPP58",
       isFavorite: false),
   // Add more hotels here
 ];
@@ -171,7 +176,8 @@ class _ScreenOneState extends State<ScreenOne> {
           imagePaths: alexHotels[i].imagePaths,
           description: alexHotels[i].description,
           price: price,
-          url: cairoHotels[i].url,
+          url: alexHotels[i].url,
+          locationurl: alexHotels[i].locationurl,
           isFavorite: isFavorite,
         );
         if (price == 0) {
@@ -279,9 +285,15 @@ class _ScreenOneState extends State<ScreenOne> {
                         textAlign: TextAlign.left,
                       ),
                       SizedBox(width: 8),
-                      Icon(
-                        Icons.location_on,
-                        color: Color.fromARGB(255, 5, 59, 107),
+                      GestureDetector(
+                        onTap: () {
+                          _launchURL(alexHotels[i]
+                              .locationurl); // Launch URL when tapped
+                        },
+                        child: Icon(
+                          Icons.location_on,
+                          color: Color.fromARGB(255, 5, 59, 107),
+                        ),
                       ),
                       SizedBox(width: 8),
                       GestureDetector(

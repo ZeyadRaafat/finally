@@ -39,7 +39,7 @@ class _FromConteinerWidgetState extends State<FromConteinerWidget> {
         width: 350,
         height: 50,
         child: new TextFormField(
-          style: TextStyle(color: Colors.black87),
+          style: TextStyle(color: Colors.white),
           controller: widget.controller,
           keyboardType: widget.inputType,
           key: widget.fieldKey,
@@ -69,7 +69,7 @@ class _FromConteinerWidgetState extends State<FromConteinerWidget> {
                   ? Icon(
                       _obscureText ? Icons.visibility_off : Icons.visibility,
                       color:
-                          _obscureText == false ? Colors.black45 : Colors.grey,
+                          _obscureText == false ? Colors.white : Colors.grey,
                     )
                   : Text(""),
             ),

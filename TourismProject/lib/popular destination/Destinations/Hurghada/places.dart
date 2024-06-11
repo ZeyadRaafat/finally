@@ -19,6 +19,7 @@ List<Place> hurghadaPlaces = [
     "Dolphin World Reservations in Hurghada: where the Red Sea's magic meets the playful dance of dolphins.",
     0,
     "https://www.dolphinworldegypt.com/",
+    "https://www.google.com/maps/place/Dolphin+World+reservations/@26.9906317,33.8520963,15z/data=!4m6!3m5!1s0x144d793b48194283:0xc688c6808a4f8456!8m2!3d26.9906317!4d33.8520963!16s%2Fg%2F11b6sr2j1r?entry=ttu",
     false,
   ),
   Place(
@@ -32,6 +33,7 @@ List<Place> hurghadaPlaces = [
     "The Hurghada Grand Aquarium: an underwater wonderland showcasing marine life off the coast of Egypt.",
     0,
     "https://hurghadaaquarium.com/",
+    "https://www.google.com/maps/place/Hurghada+Grand+Aquarium/@27.1343995,33.821875,15z/data=!4m6!3m5!1s0x1452805e870e89a9:0xd5266a593848cdaa!8m2!3d27.1343995!4d33.821875!16s%2Fg%2F11c30rvk0f?entry=ttu",
     false,
   ),
   Place(
@@ -45,6 +47,7 @@ List<Place> hurghadaPlaces = [
     "Mahmya Island: A tranquil paradise with sandy beaches and clear waters for relaxation and snorkeling.",
     0,
     "https://www.mahmya.com/",
+    "https://www.google.com/maps/place/Mahmya+Island/@27.1827177,33.9596303,15z/data=!4m6!3m5!1s0x145284d89826aff5:0x19ffcf335924977d!8m2!3d27.1827177!4d33.9596303!16s%2Fg%2F11c5_vgcj9?entry=ttu",
     false,
   ),
   Place(
@@ -58,6 +61,7 @@ List<Place> hurghadaPlaces = [
     "Makadi Water World: A thrilling water park in Egypt, offering slides, pools, and fun for all ages.",
     0,
     "https://makadiwaterworld.com/",
+    "https://www.google.com/maps/place/Makadi+Water+World/@26.9824208,33.8728663,15z/data=!4m6!3m5!1s0x144d794316a8f2c9:0x3c18e7ce348ab175!8m2!3d26.9824208!4d33.8728663!16s%2Fg%2F1pp2vj4k7?entry=ttu",
     false,
   ),
   Place(
@@ -71,6 +75,7 @@ List<Place> hurghadaPlaces = [
     "Paradise Island Hurghada: A scenic island escape in Egypt, boasting beautiful beaches and crystal-clear waters.",
     0,
     "https://www.tripadvisor.com/Attraction_Review-g297549-d13576819-Reviews-Paradise_Island-Hurghada_Red_Sea_and_Sinai.html",
+    "https://www.google.com/maps/place/Paradise+Island+Hurghada/@27.1814387,33.9539221,15z/data=!4m6!3m5!1s0x145287e5ac6eb9f1:0xf97bf80e53d281da!8m2!3d27.1814387!4d33.9539221!16s%2Fg%2F11ckrj4dm_?entry=ttu",
     false,
   ),
   // Add more hotels here
@@ -172,6 +177,7 @@ class _ScreenThreeState extends State<ScreenThree> {
           hurghadaPlaces[i].description,
           price,
           hurghadaPlaces[i].url,
+          hurghadaPlaces[i].locationurl,
           isFavorite,
         );
         if (price == 1) {
@@ -279,9 +285,15 @@ class _ScreenThreeState extends State<ScreenThree> {
                         textAlign: TextAlign.left,
                       ),
                       SizedBox(width: 8),
-                      Icon(
-                        Icons.location_on,
-                        color: Color.fromARGB(255, 5, 59, 107),
+                      GestureDetector(
+                        onTap: () {
+                          _launchURL(hurghadaPlaces[i]
+                              .locationurl); // Launch URL when tapped
+                        },
+                        child: Icon(
+                          Icons.location_on,
+                          color: Color.fromARGB(255, 5, 59, 107),
+                        ),
                       ),
                       SizedBox(width: 8),
                       GestureDetector(

@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:new_project/StartPages/home_page.dart';
-import 'package:new_project/StartPages/log_in.dart';
-import 'package:new_project/StartPages/start_page.dart';
-import 'package:new_project/StartPages/about_page.dart';
-import 'package:new_project/StartPages/sign_up.dart';
+import 'package:Guide/StartPages/home_page.dart';
+import 'package:Guide/StartPages/log_in.dart';
+import 'package:Guide/StartPages/about_page.dart';
+import 'package:Guide/StartPages/sign_up.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
-import 'package:new_project/popular%20destination/Destinations/Alex/info.dart';
-import 'package:new_project/popular%20destination/Destinations/Cairo/info.dart';
-import 'package:new_project/popular%20destination/Destinations/Hurghada/info.dart';
-import 'package:new_project/popular%20destination/Destinations/LuxorAswan/info.dart';
-import 'package:new_project/popular%20destination/Destinations/Sinai/info.dart';
-import 'package:new_project/popular%20destination/Destinations/Siwa/info.dart';
+import 'package:Guide/popular%20destination/Destinations/Alex/info.dart';
+import 'package:Guide/popular%20destination/Destinations/Cairo/info.dart';
+import 'package:Guide/popular%20destination/Destinations/Hurghada/info.dart';
+import 'package:Guide/popular%20destination/Destinations/LuxorAswan/info.dart';
+import 'package:Guide/popular%20destination/Destinations/Sinai/info.dart';
+import 'package:Guide/popular%20destination/Destinations/Siwa/info.dart';
 
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -43,8 +42,8 @@ class flutterproject extends StatelessWidget {
       theme: ThemeData(
         primaryColor: Color(0xFFE6969),
       ),
-      home: Startpage(),
-      initialRoute: 'startpage',
+      home: Homepage(),
+      initialRoute: 'homepage',
       routes: {
         'alex': (context) => SecRoute(),
         'cairo': (context) => FirstRoute(),

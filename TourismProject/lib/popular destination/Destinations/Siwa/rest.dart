@@ -8,7 +8,6 @@ import 'info.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../restaurant.dart';
 
-
 List<Rest> siwaRests = [
   Rest(
       "Tekeyet Elamir",
@@ -20,9 +19,9 @@ List<Rest> siwaRests = [
       ],
       "Tekeyet Elamir: A cozy spot in Egypt for traditional cuisine in a welcoming atmosphere.",
       "https://www.facebook.com/profile.php?id=100063058998505",
-    false,
-    "Pdfs/menus/takeyet elamir.pdf"
-  ),
+      "https://maps.app.goo.gl/i8CpW6NWSXUy4S229",
+      false,
+      "Pdfs/menus/takeyet elamir.pdf"),
   Rest(
       "Nour El Waha Garden",
       [
@@ -32,10 +31,10 @@ List<Rest> siwaRests = [
         'images/siwares/nor4.jpg',
       ],
       "Nour El Waha Garden Restaurant: Egypt's oasis for delightful dining amidst lush greenery.",
-     "https://www.rehlat.com.eg/ar/explore/restaurants/nour-el-waha-garden-restaurant-1580192",
-    false,
-    "Pdfs/menus/elwaha siwa.pdf"
-  ),
+      "https://www.rehlat.com.eg/ar/explore/restaurants/nour-el-waha-garden-restaurant-1580192",
+      "https://maps.app.goo.gl/CDKUprTu4go9Uj6A8",
+      false,
+      "Pdfs/menus/elwaha siwa.pdf"),
   Rest(
       'Al-Babinshal',
       [
@@ -46,9 +45,9 @@ List<Rest> siwaRests = [
       ],
       "Al-Babinshal: Egypt's cozy spot for delicious dining.",
       "https://www.tripadvisor.com.eg/ShowUserReviews-g303857-d1013378-r648444923-Albabenshal-Siwa_Matrouh_Governorate.html",
-    false,
-    ""
-  ),
+      "https://maps.app.goo.gl/TiLN4gt1gqYG9VE17",
+      false,
+      ""),
   Rest(
       'Joba Lounge',
       [
@@ -58,10 +57,10 @@ List<Rest> siwaRests = [
         'images/siwares/jo4.jpg',
       ],
       "Joba Lounge: A chic and trendy spot in Egypt, perfect for enjoying cocktails and socializing in a stylish atmosphere.",
-     "https://www.tripadvisor.com/Restaurant_Review-g303857-d7778574-Reviews-Joba_Lounge-Siwa_Matrouh_Governorate.html",
-    false,
-    ""
-  ),
+      "https://www.tripadvisor.com/Restaurant_Review-g303857-d7778574-Reviews-Joba_Lounge-Siwa_Matrouh_Governorate.html",
+      "https://maps.app.goo.gl/GDjocZFw8wnFqrWk9",
+      false,
+      ""),
   Rest(
       "Abu Ayman",
       [
@@ -70,10 +69,10 @@ List<Rest> siwaRests = [
         'images/siwares/abo3.jpg',
       ],
       "Abu Ayman Restaurant: A beloved dining destination in Egypt, serving up delicious cuisine with a welcoming atmosphere, perfect for enjoying a meal with friends and family.",
-     "https://www.facebook.com/groups/980099102179067/",
-    false,
-    ""
-  ),
+      "https://www.facebook.com/groups/980099102179067/",
+      "https://maps.app.goo.gl/rHEnuR5AFGy2gqeP9",
+      false,
+      ""),
   // Add more hotels here
 ];
 
@@ -153,8 +152,8 @@ class _ScreenTwoState extends State<ScreenTwo> {
 
     // Update the local state to reflect the change
     setState(() {
-      siwaRests[index].isFavorite = !siwaRests[index]
-          .isFavorite; // Use alexHotels instead of cairoHotels
+      siwaRests[index].isFavorite =
+          !siwaRests[index].isFavorite; // Use alexHotels instead of cairoHotels
     });
   }
 
@@ -168,12 +167,12 @@ class _ScreenTwoState extends State<ScreenTwo> {
         bool isFavorite = document.get('isFavourite');
         siwaRests[i] = Rest(
           siwaRests[i].name,
-        siwaRests[i].imagePaths,
-        siwaRests[i].description,
-        siwaRests[i].url,
-        isFavorite,
-        siwaRests[i].pdfPath,
-        
+          siwaRests[i].imagePaths,
+          siwaRests[i].description,
+          siwaRests[i].url,
+          siwaRests[i].locationurl,
+          isFavorite,
+          siwaRests[i].pdfPath,
         );
       } else {
         print('Document does not exist');
@@ -271,9 +270,15 @@ class _ScreenTwoState extends State<ScreenTwo> {
                         textAlign: TextAlign.left,
                       ),
                       SizedBox(width: 8),
-                      Icon(
-                        Icons.location_on,
-                        color: Color.fromARGB(255, 5, 59, 107),
+                      GestureDetector(
+                        onTap: () {
+                          _launchURL(siwaRests[i]
+                              .locationurl); // Launch URL when tapped
+                        },
+                        child: Icon(
+                          Icons.location_on,
+                          color: Color.fromARGB(255, 5, 59, 107),
+                        ),
                       ),
                       SizedBox(width: 8),
                       GestureDetector(
@@ -295,7 +300,7 @@ class _ScreenTwoState extends State<ScreenTwo> {
                           color: Color.fromARGB(255, 13, 16, 74),
                         ),
                       ),
-                       SizedBox(width: 8),
+                      SizedBox(width: 8),
                       GestureDetector(
                         onTap: () {
                           if (siwaRests[i].pdfPath.isNotEmpty) {
@@ -323,7 +328,8 @@ class _ScreenTwoState extends State<ScreenTwo> {
                       SizedBox(width: 8),
                       GestureDetector(
                         onTap: () {
-                          _launchURL(siwaRests[i].url); // Launch URL when tapped
+                          _launchURL(
+                              siwaRests[i].url); // Launch URL when tapped
                         },
                         child: Icon(
                           Icons.link,
@@ -368,6 +374,7 @@ class _ScreenTwoState extends State<ScreenTwo> {
       ),
     );
   }
+
   void _launchURL(String url) async {
     final Uri uri = Uri.parse(url);
     if (!await launchUrl(uri)) {
@@ -375,6 +382,7 @@ class _ScreenTwoState extends State<ScreenTwo> {
     }
   }
 }
+
 class PDFScreen extends StatelessWidget {
   final String pdfPath;
 
@@ -387,7 +395,7 @@ class PDFScreen extends StatelessWidget {
         title: Text(
           'Restaurant\'s menu',
           style: TextStyle(
-             color: Color.fromARGB(255, 121, 155, 228), // Text color
+            color: Color.fromARGB(255, 121, 155, 228), // Text color
             fontWeight: FontWeight.bold, // Bold text
             fontFamily: 'MadimiOne', // Font family
           ),

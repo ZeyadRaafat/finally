@@ -1,4 +1,4 @@
-name: new_project
+name: Guide
 description: "A new Flutter project."
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
@@ -47,11 +47,14 @@ dependencies:
   url_launcher: ^6.1.5
   # flutter_pdfview: ^1.0.4
   syncfusion_flutter_pdfviewer: ^20.3.57  
+  flutter_native_splash: ^2.4.0
 
   
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  flutter_launcher_icons: ^0.13.1 
+
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
@@ -59,7 +62,20 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^3.0.0
-  
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "images/start.jpg"
+  remove_alpha_ios: true
+  background_color: '#128A15'
+
+flutter_native_splash:
+  background_image: "images/start3.jpg"
+  ios: true
+
+  android_12:
+    color: "#ffffff"
+    image: "images/start3.jpg"
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
@@ -524,8 +540,51 @@ flutter:
     - Pdfs/menus/sofra luxor.pdf
     - Pdfs/menus/tahrer.pdf
     - Pdfs/menus/takeyet elamir.pdf
+    - images/pyramids.jpg
+    - images/alex library.jpg
+    - images/elkarnak.jpg
+    - images/saintcatherine.jpg
+    - images/abosimble.jpg
+    - images/siwa oasis.jpg
+    - images/philae temple.jpg
+    - images/khan elkhalely.jpg
+    - images/start.jpg
+    - images/start1.jpg
+    - images/start2.jpg
+    - images/start3.jpg
+    - images/seashores/matroh1.jpg
+    - images/seashores/matroh2.jpg
+    - images/seashores/matroh3.jpg
+    - images/seashores/marsaalam1.jpg
+    - images/seashores/marsaalam2.jpg
+    - images/seashores/marsaalam3.jpg
+    - images/seashores/alamein.jpg
+    - images/seashores/alamein2.jpg
+    - images/seashores/alamein3.jpg
+    - images/seashores/ainsokhna1.jpg
+    - images/seashores/ainsokhna2.jpg
+    - images/seashores/ainsokhna3.jpg
+    - images/seashores/hurghada1.jpg
+    - images/seashores/hurghada2.jpg
+    - images/seashores/hurghada3.jpg
+    - images/monumentosplaces/ibn tolon1.jpg
+    - images/monumentosplaces/ibn tolon3.jpg
+    - images/monumentosplaces/ibntolon2.jpg
+    - images/monumentosplaces/azhar1.jpg
+    - images/monumentosplaces/azhar2.jpg
+    - images/monumentosplaces/azhar3.jpg
+    - images/monumentosplaces/mhmdali1.jpg
+    - images/monumentosplaces/mhmdali2.jpg
+    - images/monumentosplaces/mhmdali3.jpg
+    - images/monumentosplaces/sultanhassan1.jpg
+    - images/monumentosplaces/sultan2.jpg
+    - images/monumentosplaces/sultan3.jpg
+    - images/monumentosplaces/hakem1.jpg
+    - images/monumentosplaces/hakeem2.jpg
+    - images/monumentosplaces/hakem3.jpg
     
-    
+
+
   fonts:
     - family: Madimi One
       fonts:

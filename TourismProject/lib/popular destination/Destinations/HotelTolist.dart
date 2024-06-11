@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/widgets.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'hotel.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
-class HotelListItem extends StatelessWidget {
+class HotelListItem extends StatefulWidget {
   final Hotel hotel;
   final int activeIndex;
   final List<String> imagePaths;
@@ -12,12 +13,25 @@ class HotelListItem extends StatelessWidget {
   HotelListItem(this.hotel, this.activeIndex, this.imagePaths);
 
   @override
+  _HotelListItemState createState() => _HotelListItemState();
+}
+
+class _HotelListItemState extends State<HotelListItem> {
+  int _currentIndex = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    _currentIndex = widget.activeIndex;
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         CarouselSlider(
-          items: hotel.imagePaths
+          items: widget.hotel.imagePaths
               .map((imagePath) => Container(
                     margin: EdgeInsets.all(8),
                     decoration: BoxDecoration(
@@ -35,10 +49,15 @@ class HotelListItem extends StatelessWidget {
             viewportFraction: 0.8,
             autoPlay: false,
             enlargeCenterPage: true,
+            onPageChanged: (index,reason) {
+              setState(() {
+                _currentIndex = index;
+              });
+            },
           ),
         ),
         SizedBox(height: 10),
-        buildIndicator(activeIndex, imagePaths.length),
+        buildIndicator(_currentIndex, widget.imagePaths.length),
         SizedBox(height: 10),
         Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -46,7 +65,7 @@ class HotelListItem extends StatelessWidget {
               children: [
                 SizedBox(width: 8),
                 Text(
-                  hotel.name,
+                  widget.hotel.name,
                   style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
@@ -63,6 +82,7 @@ class HotelListItem extends StatelessWidget {
                 SizedBox(width: 8),
                 GestureDetector(
                   onTap: () {
+
                     ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(
                         content: Text('Added to Trip!'),
@@ -75,13 +95,41 @@ class HotelListItem extends StatelessWidget {
                     color: Color.fromARGB(255, 13, 16, 74),
                   ),
                 ),
+                SizedBox(
+                  width: 8,
+                ),
+                GestureDetector(
+                  onTap: () {
+                    FirebaseFirestore.instance
+                .collection('Hotels')
+                .doc(widget.hotel.name)
+                .update({'isFavourite': false})
+                .then((_) {
+                  // Snackbar to show the update is successful
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: Text('Removed from Favorites'),
+                      duration: Duration(seconds: 2),
+                    ),
+                  );
+                })
+                .catchError((error) {
+                  // Handle the error
+                  print('Error updating document: $error');
+                });
+                  },
+                  child: Icon(
+                    Icons.remove,
+                    color: Color.fromARGB(255, 13, 16, 74),
+                  ),
+                )
               ],
             )),
         SizedBox(height: 5),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),
           child: Text(
-            hotel.description,
+            widget.hotel.description,
             style: TextStyle(
               fontSize: 16,
               color: Color.fromARGB(255, 36, 108, 163),
@@ -95,17 +143,17 @@ class HotelListItem extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 16),
           child: Row(
             children: [
-              if (hotel.price != 0)
+              if (widget.hotel.price != 0)
                 Text(
-                  hotel.price.toString(),
+                  widget.hotel.price.toString(),
                   style: TextStyle(
                     fontSize: 16,
                     color: Color.fromARGB(255, 5, 59, 107),
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-              if (hotel.price != 0) SizedBox(width: 8),
-              if (hotel.price != 0)
+              if (widget.hotel.price != 0) SizedBox(width: 8),
+              if (widget.hotel.price != 0)
                 Text(
                   "EGP",
                   style: TextStyle(

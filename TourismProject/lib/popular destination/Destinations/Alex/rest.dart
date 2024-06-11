@@ -10,18 +10,18 @@ import '../restaurant.dart';
 
 List<Rest> alexRests = [
   Rest(
-    "Ginger",
-    [
-      'images/alexrest/gin1.jpg',
-      'images/alexrest/gin2.jpg',
-      'images/alexrest/gin3.jpg',
-      'images/alexrest/gin4.jpg',
-    ],
-    "Ginger Restaurant: A delightful dining destination in Egypt, known for its flavorful cuisine and inviting atmosphere.",
-    "https://www.tripadvisor.com.eg/Restaurant_Review-g294201-d23521213-Reviews-Ginger_Restaurant-Cairo_Cairo_Governorate.html/",
-    false,
-     "Pdfs/menus/ginger alex.pdf"
-  ),
+      "Ginger",
+      [
+        'images/alexrest/gin1.jpg',
+        'images/alexrest/gin2.jpg',
+        'images/alexrest/gin3.jpg',
+        'images/alexrest/gin4.jpg',
+      ],
+      "Ginger Restaurant: A delightful dining destination in Egypt, known for its flavorful cuisine and inviting atmosphere.",
+      "https://www.tripadvisor.com.eg/Restaurant_Review-g294201-d23521213-Reviews-Ginger_Restaurant-Cairo_Cairo_Governorate.html/",
+      "https://maps.app.goo.gl/vLK7JA2NybnPZV9n8",
+      false,
+      "Pdfs/menus/ginger alex.pdf"),
   Rest(
       "Mafia",
       [
@@ -32,9 +32,9 @@ List<Rest> alexRests = [
       ],
       "Mafia Restaurant: A unique dining experience in Egypt, combining a themed ambiance with delicious cuisine for an unforgettable meal.",
       "https://www.menuegypt.com/ar/%D9%85%D8%A7%D9%81%D9%8A%D8%A7/Alex/%D8%B3%D9%86%D8%AF%D9%88%D8%AA%D8%B4%D8%A7%D8%AA/",
-    false,
-     "Pdfs/menus/mafia alex.pdf"
-  ),
+      "https://maps.app.goo.gl/ZYC632Nqw4gtPhBWA",
+      false,
+      "Pdfs/menus/mafia alex.pdf"),
   Rest(
       'White&Blue',
       [
@@ -44,10 +44,10 @@ List<Rest> alexRests = [
         'images/alexrest/blue4.jpg',
       ],
       "Blue and White Restaurant: A chic dining establishment in Egypt, offering a stylish ambiance and delectable cuisine with a modern twist.",
-       "https://www.tripadvisor.com.eg/Restaurant_Review-g295398-d2361538-Reviews-White_and_Blue_Restaurant-Alexandria_Alexandria_Governorate.html/",
-    false,
-     "" 
-  ),
+      "https://www.tripadvisor.com.eg/Restaurant_Review-g295398-d2361538-Reviews-White_and_Blue_Restaurant-Alexandria_Alexandria_Governorate.html/",
+      "https://maps.app.goo.gl/u99mB5KvFncempXc8",
+      false,
+      ""),
   Rest(
       'Koshary El Tahrir',
       [
@@ -57,10 +57,10 @@ List<Rest> alexRests = [
         'images/alexrest/khos4.jpg',
       ],
       "Koshary El Tahrir: A popular eatery in Egypt, celebrated for its delicious and authentic Egyptian street food, particularly the iconic dish, koshary.",
-       "https://www.tripadvisor.com/LocationPhotoDirectLink-g295398-d2727688-i369439157-Koshary_El_Tahrir-Alexandria_Alexandria_Governorate.html/",
-    false,
-    "Pdfs/menus/tahrer.pdf"
-  ),
+      "https://www.tripadvisor.com/LocationPhotoDirectLink-g295398-d2727688-i369439157-Koshary_El_Tahrir-Alexandria_Alexandria_Governorate.html/",
+      "https://maps.app.goo.gl/dBAGKQP9EVbkrN4Z7",
+      false,
+      "Pdfs/menus/tahrer.pdf"),
   Rest(
       'Sahar El-Laialy',
       [
@@ -71,9 +71,9 @@ List<Rest> alexRests = [
       ],
       "Sahar El-Laialy Restaurant: A renowned dining spot in Egypt, known for its flavorful cuisine and inviting atmosphere, perfect for enjoying a meal with family and friends.",
       "https://www.tripadvisor.com/LocationPhotoDirectLink-g295398-d2729767-i425165426-Sahar_El_Laialy_Lebanese_Restaurant-Alexandria_Alexandria_Governorate.html/",
-    false,
-    ""
-  ),
+      "https://maps.app.goo.gl/WGrjVuLXCATit9116",
+      false,
+      ""),
   // Add more hotels here
 ];
 
@@ -153,8 +153,8 @@ class _ScreenTwoState extends State<ScreenTwo> {
 
     // Update the local state to reflect the change
     setState(() {
-      alexRests[index].isFavorite = !alexRests[index]
-          .isFavorite; // Use alexHotels instead of cairoHotels
+      alexRests[index].isFavorite =
+          !alexRests[index].isFavorite; // Use alexHotels instead of cairoHotels
     });
   }
 
@@ -168,12 +168,12 @@ class _ScreenTwoState extends State<ScreenTwo> {
         bool isFavorite = document.get('isFavourite');
         alexRests[i] = Rest(
           alexRests[i].name,
-        alexRests[i].imagePaths,
-        alexRests[i].description,
-        alexRests[i].url,
-        isFavorite,
-        alexRests[i].pdfPath,
-        
+          alexRests[i].imagePaths,
+          alexRests[i].description,
+          alexRests[i].url,
+          alexRests[i].locationurl,
+          isFavorite,
+          alexRests[i].pdfPath,
         );
       } else {
         print('Document does not exist');
@@ -271,9 +271,15 @@ class _ScreenTwoState extends State<ScreenTwo> {
                         textAlign: TextAlign.left,
                       ),
                       SizedBox(width: 8),
-                      Icon(
-                        Icons.location_on,
-                        color: Color.fromARGB(255, 5, 59, 107),
+                      GestureDetector(
+                        onTap: () {
+                          _launchURL(alexRests[i]
+                              .locationurl); // Launch URL when tapped
+                        },
+                        child: Icon(
+                          Icons.location_on,
+                          color: Color.fromARGB(255, 5, 59, 107),
+                        ),
                       ),
                       SizedBox(width: 8),
                       GestureDetector(
@@ -295,7 +301,7 @@ class _ScreenTwoState extends State<ScreenTwo> {
                           color: Color.fromARGB(255, 13, 16, 74),
                         ),
                       ),
-                        SizedBox(width: 8),
+                      SizedBox(width: 8),
                       GestureDetector(
                         onTap: () {
                           if (alexRests[i].pdfPath.isNotEmpty) {
@@ -323,7 +329,8 @@ class _ScreenTwoState extends State<ScreenTwo> {
                       SizedBox(width: 8),
                       GestureDetector(
                         onTap: () {
-                          _launchURL(alexRests[i].url); // Launch URL when tapped
+                          _launchURL(
+                              alexRests[i].url); // Launch URL when tapped
                         },
                         child: Icon(
                           Icons.link,
@@ -368,6 +375,7 @@ class _ScreenTwoState extends State<ScreenTwo> {
       ),
     );
   }
+
   void _launchURL(String url) async {
     final Uri uri = Uri.parse(url);
     if (!await launchUrl(uri)) {
@@ -389,14 +397,14 @@ class PDFScreen extends StatelessWidget {
         title: Text(
           'Restaurant\'s menu',
           style: TextStyle(
-             color: Color.fromARGB(255, 121, 155, 228), // Text color
+            color: Color.fromARGB(255, 121, 155, 228), // Text color
             fontWeight: FontWeight.bold, // Bold text
             fontFamily: 'MadimiOne', // Font family
           ),
         ),
       ),
       body: SfPdfViewer.asset(
-         pdfPath,
+        pdfPath,
       ),
     );
   }

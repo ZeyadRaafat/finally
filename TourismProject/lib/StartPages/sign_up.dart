@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:new_project/StartPages/log_in.dart';
-import 'package:new_project/firebase_auth_services.dart';
-import 'package:new_project/global/common/toast.dart';
-import 'package:new_project/widgets/from_conteiner_widget.dart';
+import 'package:Guide/StartPages/log_in.dart';
+import 'package:Guide/firebase_auth_services.dart';
+import 'package:Guide/global/common/toast.dart';
+import 'package:Guide/widgets/from_conteiner_widget.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class Signup extends StatefulWidget {

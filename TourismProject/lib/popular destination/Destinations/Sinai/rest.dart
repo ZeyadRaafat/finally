@@ -8,7 +8,7 @@ import 'info.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../restaurant.dart';
 
-List<Rest> sinaiRests= [
+List<Rest> sinaiRests = [
   Rest(
       "Athanor Pizzeria",
       [
@@ -18,10 +18,10 @@ List<Rest> sinaiRests= [
         'images/sinairest/anth4.jpg',
       ],
       "Athanor Pizzeria: A cozy pizzeria in Egypt, serving up delicious pies with a variety of toppings in a relaxed atmosphere.",
-     "https://www.elmenus.com/dahab/athanor-r92w",
-    false,
-    ""
-  ),
+      "https://www.elmenus.com/dahab/athanor-r92w",
+      "https://maps.app.goo.gl/ffEMqLeDLJrHLUDX6",
+      false,
+      ""),
   Rest(
       "Boharat Restaurant",
       [
@@ -31,10 +31,10 @@ List<Rest> sinaiRests= [
         'images/sinairest/boh4.jpg',
       ],
       "Boharat Restaurant: A taste of excellence in Egypt, with flavorful dishes served in a cozy setting.",
-     "https://www.tripadvisor.com/Restaurant_Review-g297555-d10665099-Reviews-Boharat_Restaurant-Sharm_El_Sheikh_South_Sinai_Red_Sea_and_Sinai.html",
-    false,
-    "Pdfs/menus/boharat sina.pdf"
-  ),
+      "https://www.tripadvisor.com/Restaurant_Review-g297555-d10665099-Reviews-Boharat_Restaurant-Sharm_El_Sheikh_South_Sinai_Red_Sea_and_Sinai.html",
+      "https://maps.app.goo.gl/m6SFKPBtsd9XK5rW9",
+      false,
+      "Pdfs/menus/boharat sina.pdf"),
   Rest(
       'Camel Bar & Rooftop',
       [
@@ -44,10 +44,10 @@ List<Rest> sinaiRests= [
         'images/sinairest/cam4.jpg',
       ],
       "Camel Bar & Rooftop: A lively spot in Egypt, offering refreshing drinks and a vibrant atmosphere with stunning rooftop views.",
-     "https://www.cameldive.com/food-and-drinks-camel-bar-rooftop/",
-    false,
-    ""
-  ),
+      "https://www.cameldive.com/food-and-drinks-camel-bar-rooftop/",
+      "https://www.google.com/maps/place/Camel+Bar+%26+Rooftop/@27.9094122,34.3224081,17z/data=!3m1!4b1!4m6!3m5!1s0x1453382c839df84f:0x4207b3fab8e43e72!8m2!3d27.9094075!4d34.324983!16s%2Fg%2F12hkb2yy1?entry=ttu",
+      false,
+      ""),
   Rest(
       'King Chicken',
       [
@@ -58,9 +58,9 @@ List<Rest> sinaiRests= [
       ],
       "King Chicken Restaurant: Egypt's hotspot for tasty chicken in a friendly atmosphere.",
       "https://www.tripadvisor.com/Restaurant_Review-g297547-d2033607-Reviews-King_Chicken-Dahab_South_Sinai_Red_Sea_and_Sinai.html",
-    false,
-    ""
-  ),
+      "https://www.google.com/maps/place/King+Chicken/@28.1776317,34.0808548,10z/data=!4m12!1m2!2m1!1sKing+Chicken!3m8!1s0x15ab4b36e98213ad:0x1db06a6653b987c7!8m2!3d28.4929422!4d34.5159413!9m1!1b1!15sCgxLaW5nIENoaWNrZW5aDiIMa2luZyBjaGlja2VukgESY2hpY2tlbl9yZXN0YXVyYW504AEA!16s%2Fg%2F11c481vfqq?entry=ttu",
+      false,
+      ""),
   Rest(
       'Mango Restaurant',
       [
@@ -71,9 +71,9 @@ List<Rest> sinaiRests= [
       ],
       "Mango Restaurant: A delightful dining spot in Egypt, offering delicious cuisine with a tropical twist in a relaxed setting.",
       "https://www.tripadvisor.com/Restaurant_Review-g297555-d20069368-Reviews-Mango_Chinese_Restaurant-Sharm_El_Sheikh_South_Sinai_Red_Sea_and_Sinai.html",
-    false,
-    "Pdfs/menus/mango sinaa.pdf"
-  ),
+      "https://maps.google.com/?cid=6081069186578010497&entry=gps",
+      false,
+      "Pdfs/menus/mango sinaa.pdf"),
   // Add more hotels here
 ];
 
@@ -168,12 +168,12 @@ class _ScreenTwoState extends State<ScreenTwo> {
         bool isFavorite = document.get('isFavourite');
         sinaiRests[i] = Rest(
           sinaiRests[i].name,
-        sinaiRests[i].imagePaths,
-        sinaiRests[i].description,
-        sinaiRests[i].url,
-        isFavorite,
-        sinaiRests[i].pdfPath,
-        
+          sinaiRests[i].imagePaths,
+          sinaiRests[i].description,
+          sinaiRests[i].url,
+          sinaiRests[i].locationurl,
+          isFavorite,
+          sinaiRests[i].pdfPath,
         );
       } else {
         print('Document does not exist');
@@ -271,9 +271,15 @@ class _ScreenTwoState extends State<ScreenTwo> {
                         textAlign: TextAlign.left,
                       ),
                       SizedBox(width: 8),
-                      Icon(
-                        Icons.location_on,
-                        color: Color.fromARGB(255, 5, 59, 107),
+                      GestureDetector(
+                        onTap: () {
+                          _launchURL(sinaiRests[i]
+                              .locationurl); // Launch URL when tapped
+                        },
+                        child: Icon(
+                          Icons.location_on,
+                          color: Color.fromARGB(255, 5, 59, 107),
+                        ),
                       ),
                       SizedBox(width: 8),
                       GestureDetector(
@@ -295,7 +301,7 @@ class _ScreenTwoState extends State<ScreenTwo> {
                           color: Color.fromARGB(255, 13, 16, 74),
                         ),
                       ),
-                       SizedBox(width: 8),
+                      SizedBox(width: 8),
                       GestureDetector(
                         onTap: () {
                           if (sinaiRests[i].pdfPath.isNotEmpty) {
@@ -323,7 +329,8 @@ class _ScreenTwoState extends State<ScreenTwo> {
                       SizedBox(width: 8),
                       GestureDetector(
                         onTap: () {
-                          _launchURL(sinaiRests[i].url); // Launch URL when tapped
+                          _launchURL(
+                              sinaiRests[i].url); // Launch URL when tapped
                         },
                         child: Icon(
                           Icons.link,
@@ -368,6 +375,7 @@ class _ScreenTwoState extends State<ScreenTwo> {
       ),
     );
   }
+
   void _launchURL(String url) async {
     final Uri uri = Uri.parse(url);
     if (!await launchUrl(uri)) {
@@ -375,6 +383,7 @@ class _ScreenTwoState extends State<ScreenTwo> {
     }
   }
 }
+
 class PDFScreen extends StatelessWidget {
   final String pdfPath;
 
@@ -387,7 +396,7 @@ class PDFScreen extends StatelessWidget {
         title: Text(
           'Restaurant\'s menu',
           style: TextStyle(
-             color: Color.fromARGB(255, 121, 155, 228), // Text color
+            color: Color.fromARGB(255, 121, 155, 228), // Text color
             fontWeight: FontWeight.bold, // Bold text
             fontFamily: 'MadimiOne', // Font family
           ),

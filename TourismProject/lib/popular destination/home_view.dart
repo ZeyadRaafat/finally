@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:new_project/StartPages/home_page.dart';
-import 'package:new_project/popular%20destination/Destinations/Alex/info.dart';
-import 'package:new_project/popular%20destination/Destinations/Cairo/info.dart';
-import 'package:new_project/popular%20destination/Destinations/Hurghada/info.dart';
-import 'package:new_project/popular%20destination/Destinations/LuxorAswan/info.dart';
-import 'package:new_project/popular%20destination/Destinations/Sinai/info.dart';
-import 'package:new_project/popular%20destination/Destinations/Siwa/info.dart';
+import 'package:Guide/StartPages/home_page.dart';
+import 'package:Guide/popular%20destination/Destinations/Alex/info.dart';
+import 'package:Guide/popular%20destination/Destinations/Cairo/info.dart';
+import 'package:Guide/popular%20destination/Destinations/Hurghada/info.dart';
+import 'package:Guide/popular%20destination/Destinations/LuxorAswan/info.dart';
+import 'package:Guide/popular%20destination/Destinations/Sinai/info.dart';
+import 'package:Guide/popular%20destination/Destinations/Siwa/info.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});

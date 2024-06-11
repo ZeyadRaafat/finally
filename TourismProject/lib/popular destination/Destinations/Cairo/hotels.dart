@@ -20,6 +20,7 @@ List<Hotel> cairoHotels = [
           "Luxurious accommodation with stunning views and relaxing amenities.",
       price: 0,
       url: "https://www.hilton.com/en/hotels/cairhtw-ramses-hilton/",
+      locationurl: "https://maps.app.goo.gl/Pw5onWsf9nSV7ijf6",
       isFavorite: false),
   Hotel(
       name: "Tolip Golden plaza",
@@ -33,6 +34,7 @@ List<Hotel> cairoHotels = [
           "Experience comfort and convenience in the heart of the city.",
       price: 0,
       url: "http://tolipgoldenplaza.com/",
+      locationurl: "https://maps.app.goo.gl/BbXsxVoQQHfZV8VV7",
       isFavorite: false),
   Hotel(
       name: 'Fairmont Nile City',
@@ -45,6 +47,7 @@ List<Hotel> cairoHotels = [
       description: "Where luxury meets elegance, offering top-notch services.",
       price: 0,
       url: "https://www.fairmont.com/nile-city-cairo/",
+      locationurl: "https://maps.app.goo.gl/1Qg793SniEJRG48YA",
       isFavorite: false),
   Hotel(
       name: 'Kempinski Nile Hotel',
@@ -58,6 +61,7 @@ List<Hotel> cairoHotels = [
           "Unparalleled luxury and impeccable service for a memorable stay.",
       price: 0,
       url: "https://www.kempinski.com/en/cairo/kempinski-nile-hotel",
+      locationurl: "https://maps.app.goo.gl/MPtmnLz5kmZ8wsxG8",
       isFavorite: false),
   Hotel(
       name: 'Steigenberger Nile Palace',
@@ -72,6 +76,7 @@ List<Hotel> cairoHotels = [
       price: 0,
       url:
           "https://steigenberger.com/en/hotels/all-hotels/egypt/cairo/steigenberger-pyramids-cairo",
+      locationurl: "https://maps.app.goo.gl/tauef8Jf9kehtXKi9",
       isFavorite: false),
 ];
 
@@ -169,6 +174,7 @@ class _ScreenOneState extends State<ScreenOne> {
           description: cairoHotels[i].description,
           price: price,
           url: cairoHotels[i].url,
+          locationurl: cairoHotels[i].locationurl,
           isFavorite: isFavorite,
         );
         if (price == 0) {
@@ -276,9 +282,15 @@ class _ScreenOneState extends State<ScreenOne> {
                         textAlign: TextAlign.left,
                       ),
                       SizedBox(width: 8),
-                      Icon(
-                        Icons.location_on,
-                        color: Color.fromARGB(255, 5, 59, 107),
+                      GestureDetector(
+                        onTap: () {
+                          _launchURL(cairoHotels[i]
+                              .locationurl); // Launch URL when tapped
+                        },
+                        child: Icon(
+                          Icons.location_on,
+                          color: Color.fromARGB(255, 5, 59, 107),
+                        ),
                       ),
                       SizedBox(width: 8),
                       GestureDetector(
